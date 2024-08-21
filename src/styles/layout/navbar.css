@@ -6,8 +6,18 @@
   height: 80px;
   padding-left: 80px;
   padding-right: 80px;
-  background-color: #063A3A;
+  background: #063a3a;
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
   z-index: 1000;
+  transition: background-size 0.3s ease, border-radius 0.3s ease, background-color 0.3s ease;
+}
+
+.header.scrolled {
+  background-size: 100% 100%;
+  border-radius: 50px;
+  background-color: #CBDCBD;
+  /* Final color */
 }
 
 .link {

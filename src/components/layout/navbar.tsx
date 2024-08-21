@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Group,
   Button,
@@ -18,22 +19,69 @@ const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const headerElement = document.querySelector(".header") as HTMLElement;
+      const scrollY = window.scrollY;
+      const maxScroll = 100;
+
+      if (scrollY > maxScroll) {
+        headerElement.classList.add("scrolled");
+        setIsScrolled(true);
+      } else {
+        const scrollPercent = Math.min(scrollY / maxScroll, 1);
+        const backgroundPositionY = `${(1 - scrollPercent) * 100}%`;
+
+        headerElement.style.backgroundPositionY = backgroundPositionY;
+        headerElement.style.backgroundColor = `rgba(203, 220, 189, ${scrollPercent})`; // Transition color
+        headerElement.classList.remove("scrolled");
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Box py={25} style={{ paddingTop: "60px" }}>
-      {" "}
-      {/* Added paddingTop */}
       <header className={"header"}>
         <Group justify='space-between' h='100%'>
-          <Image src='assets/DasshAI.svg' />
+          <Image
+            src={isScrolled ? "assets/DasshAI-dark.svg" : "assets/DasshAI.svg"}
+          />
 
           <Group h='100%' gap={0} visibleFrom='sm'>
-            <a href='#' className={"link"}>
+            <a
+              href='#'
+              className={"link"}
+              style={{
+                color: isScrolled ? "#063A3A" : "#CBDCBD",
+              }}
+            >
               Features
             </a>
-            <a href='#' className={"link"}>
+            <a
+              href='#'
+              className={"link"}
+              style={{
+                color: isScrolled ? "#063A3A" : "#CBDCBD",
+              }}
+            >
               About
             </a>
-            <a href='#' className={"link"}>
+            <a
+              href='#'
+              className={"link"}
+              style={{
+                color: isScrolled ? "#063A3A" : "#CBDCBD",
+              }}
+            >
               Science
             </a>
           </Group>
@@ -43,7 +91,7 @@ const Navbar = () => {
               style={{
                 borderRight: "1px solid #F4F5DC",
                 padding: "5px 20px",
-                color: "#F4F5DC",
+                color: isScrolled ? "#063A3A" : "#F4F5DC",
               }}
             >
               <Text>Sign in</Text>
@@ -69,6 +117,7 @@ const Navbar = () => {
           />
         </Group>
       </header>
+
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}

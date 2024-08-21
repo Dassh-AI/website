@@ -85,7 +85,7 @@ const Home = () => {
     <section className='main'>
       {/* header */}
       <Navbar/>
-      <Container fluid pb={75} pt={10} className='main-container'>
+      <Container fluid pb={75} pt={60} className='main-container'>
         {/* Hero Section */}
         <Paper radius={50}>
           <Grid>
