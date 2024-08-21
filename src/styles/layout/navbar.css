@@ -1,7 +1,13 @@
 .header {
-  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
   padding-left: 80px;
   padding-right: 80px;
+  background-color: #063A3A;
+  z-index: 1000;
 }
 
 .link {
@@ -22,5 +28,10 @@
   .link {
     height: 42px;
     width: 100%;
+  }
+
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

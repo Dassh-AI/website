@@ -19,7 +19,9 @@ const Navbar = () => {
     useDisclosure(false);
 
   return (
-    <Box py={25}>
+    <Box py={25} style={{ paddingTop: "60px" }}>
+      {" "}
+      {/* Added paddingTop */}
       <header className={"header"}>
         <Group justify='space-between' h='100%'>
           <Image src='assets/DasshAI.svg' />
@@ -52,7 +54,7 @@ const Navbar = () => {
                   color: "#063A3A",
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  fontSize: "18px"
+                  fontSize: "18px",
                 }}
               >
                 Book a Call
@@ -67,7 +69,6 @@ const Navbar = () => {
           />
         </Group>
       </header>
-
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
