@@ -1,25 +1,21 @@
-.section {
-  background-color: #cbdcbd;
-  height: 100px;
-  text-align: center;
+.footer {
+   background-color: #CBDCBD;
 }
 
-.section-grid {
-  padding-top: 35px;
-}
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
 
-@media (max-width: 992px) {
-  .section-grid {
-    padding-top: 0px;
+  @media (max-width: 767px) {
+    flex-direction: column;
   }
 }
 
-.group{
-  justify-content: flex-end;
-}
-
-@media (max-width: 992px) {
-  .group {
-    justify-content: center;
+.links {
+  @media (max-width: 767px) {
+    margin-top: 20px;
+    margin-bottom:20px;
   }
 }

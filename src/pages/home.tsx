@@ -1,17 +1,9 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Image,
-  Paper,
-  SimpleGrid,
-  Text,
-} from "@mantine/core";
+import { Box, Container, Grid, Image, Paper, Text } from "@mantine/core";
 import "../styles/pages/home.css";
 import ShowcaseCard from "../components/pages/home/Card";
-import { IconCircleCheck } from "@tabler/icons-react";
 import FeatureCard from "../components/pages/home/FeatureCard";
 import Footbar from "../components/layout/footbar";
+import Navbar from "../components/layout/navbar";
 
 const SHOWCASE_DATA = [
   {
@@ -91,6 +83,8 @@ const FEATURE_DATA = [
 const Home = () => {
   return (
     <section className='main'>
+      {/* header */}
+      <Navbar/>
       <Container fluid pb={75} pt={10} className='main-container'>
         {/* Hero Section */}
         <Paper radius={50}>
