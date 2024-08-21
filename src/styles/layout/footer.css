@@ -1,0 +1,25 @@
+.section {
+  background-color: #cbdcbd;
+  height: 100px;
+  text-align: center;
+}
+
+.section-grid {
+  padding-top: 35px;
+}
+
+@media (max-width: 992px) {
+  .section-grid {
+    padding-top: 0px;
+  }
+}
+
+.group{
+  justify-content: flex-end;
+}
+
+@media (max-width: 992px) {
+  .group {
+    justify-content: center;
+  }
+}

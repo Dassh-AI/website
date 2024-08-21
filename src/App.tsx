@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './styles/App.css';
+import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import "@mantine/core/styles.css";
+import Compose, { IComposeProps } from "./components/layout/compose";
+import Router from "./pages/router";
+import "animate.css";
 
-function App() {
+const App = () => {
+  const queryClient = new QueryClient();
+
+  const providers: IComposeProps["providers"] = [
+    [QueryClientProvider, { client: queryClient }],
+    [MantineProvider, { withGlobalStyles: true, withNormalizeCSS: true }],
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Compose providers={providers}>
+      <Notifications position='top-right' />
+      <Router />
+      <ReactQueryDevtools />
+    </Compose>
   );
-}
+};
 
 export default App;
