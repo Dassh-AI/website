@@ -1,5 +1,6 @@
 import { Box, Grid, Paper, SimpleGrid, Text } from "@mantine/core";
 import { IconCircleCheck } from "@tabler/icons-react";
+import { useEffect, useRef, useState } from "react";
 
 interface IFeatureCard {
   title: JSX.Element | string;
@@ -8,12 +9,47 @@ interface IFeatureCard {
 }
 
 const FeatureCard: React.FC<IFeatureCard> = (props) => {
+  const [inView, setInView] = useState(false);
+  const componentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect(); // Stop observing once it's in view
+        }
+      },
+      {
+        threshold: 0,
+      }
+    );
+
+    if (componentRef.current) {
+      observer.observe(componentRef.current);
+    }
+
+    return () => {
+      if (componentRef.current) {
+        observer.unobserve(componentRef.current);
+      }
+    };
+  }, []);
   return (
-    <Box className='feature-section-box' mt={100}>
+    <Box className='feature-section-box' mt={100} ref={componentRef}>
       <Grid>
         <Grid.Col span={{ base: 12, md: 6 }}>
-          <Text className='section-title'>{props.title}</Text>
-          <Text className='section-description' pt={40} pr={20}>
+          <Text className={`section-title ${inView ? "text-typewriter" : ""}`}>
+            {props.title}
+          </Text>
+          <Text
+            className={`section-description ${
+              inView ? "animate__animated animate__fadeInUp" : ""
+            }`}
+            pt={40}
+            pr={20}
+          >
             {props.description}
           </Text>
         </Grid.Col>
@@ -22,7 +58,9 @@ const FeatureCard: React.FC<IFeatureCard> = (props) => {
             cols={{ base: 3, sm: 6, lg: 3 }}
             spacing={{ base: 10, sm: "xl" }}
             verticalSpacing={{ base: "md", sm: "xl" }}
-            className="feature-section-features"
+            className={`feature-section-features ${
+              inView ? "animate__animated animate__fadeInUp" : ""
+            }`}
           >
             {props.features?.map((item, index) => {
               return (

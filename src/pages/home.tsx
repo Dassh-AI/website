@@ -98,8 +98,25 @@ const Home = () => {
             <Grid.Col span={{ base: 12, md: 7 }} p={0}>
               <Box className='hero-card-left-top'>
                 <Text className='hero-title'>
-                  Better HR.
-                  <br /> Better Futures.
+                  <span
+                    className='text-typewriter'
+                    style={{
+                      whiteSpace: "pre",
+                      display: "block",
+                    }}
+                  >
+                    Better HR.
+                  </span>
+                  <span
+                    className='text-typewriter'
+                    style={{
+                      whiteSpace: "pre",
+                      display: "block",
+                      animationDelay: "2s",
+                    }}
+                  >
+                    Better Futures.
+                  </span>
                 </Text>
               </Box>
               <Box className='hero-card-left-bottom'>
