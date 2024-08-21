@@ -14,7 +14,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import "../../styles/layout/navbar.css";
 
-const Header = () => {
+const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
 
@@ -102,4 +102,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
