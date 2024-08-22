@@ -99,7 +99,7 @@ const Newtest=({SetNewAssessment})=> {
                 <div className="h-1 bg-brand-green1 rounded-full">
                     <div
                         className="h-1 bg-brand-green rounded-full transition-all duration-300"
-                        style={{ width: `${progressPercentage}%` }}
+                        style={{ width: `${progressPercentage}%`}}
                     ></div>
                 </div>
             </div>
