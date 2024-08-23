@@ -10,17 +10,17 @@ const SHOWCASE_DATA = [
     tag: "Talent Acquisition",
     title: (
       <>
-        I Want to Migrate
+        I Want to Test
         <br />
-        to Canada
+        Candidates Before Hiring
       </>
     ),
     description: (
       <>
-        The pathway to Canadian residency is filled with legal hurdles and piles
-        of paperwork. It feels nearly impossible to navigate on your own — and I
-        believe you shouldn't have to. <br /> I'll be your trusted ally in
-        immigration so that you can live, work, and thrive in Canada.
+        Ensure you’re hiring the best fit for your team with our AI-powered
+        psychometric tests. Quickly assess candidates' traits and
+        decision-making skills to make informed hiring decisions with
+        confidence.
       </>
     ),
   },
@@ -28,17 +28,14 @@ const SHOWCASE_DATA = [
     tag: "Talent Development",
     title: (
       <>
-        I Want to Migrate
-        <br />
-        to Canada
+        I Want to Test Current <br /> Employees for Training
       </>
     ),
     description: (
       <>
-        The pathway to Canadian residency is filled with legal hurdles and piles
-        of paperwork. It feels nearly impossible to navigate on your own — and I
-        believe you shouldn't have to. <br /> I'll be your trusted ally in
-        immigration so that you can live, work, and thrive in Canada.
+        Identify growth opportunities within your team using our AI-powered
+        psychometric tests. Assess your employees' strengths and areas for
+        improvement to tailor training programs that drive their success.
       </>
     ),
   },
@@ -49,34 +46,49 @@ const FEATURE_DATA = [
     title: <>Identify traits for any job</>,
     description: (
       <>
-        From initial applications to your flight arrival, I'll work with you to
-        create a completely custom, highly detailed plan to smooth out the
-        immigration experience.
+        Our AI pinpoints the key traits needed for any job, ensuring a perfect
+        fit by aligning personality with role requirements.
       </>
     ),
-    features: ["Lorem Ipsum", "Lorem Ipsum"],
+    link_text: "Try it for free",
+    features: [
+      "Evaluate Job in 1 min",
+      "Identify trait for any profile",
+      "Choose traits for test generation",
+      "Classified traits for easy mapping",
+    ],
   },
   {
-    title: <>Identify traits for any job</>,
+    title: <>Generate Test Personalised to the Job Role</>,
     description: (
       <>
-        From initial applications to your flight arrival, I'll work with you to
-        create a completely custom, highly detailed plan to smooth out the
-        immigration experience.
+        Create tailored tests for any job role, with questions designed to match
+        the specific traits and skills needed for success.
       </>
     ),
-    features: ["Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum"],
+    link_text: "Generate for free",
+    features: [
+      "Get reliable tests within seconds",
+      "AI conversation like ChatGPT",
+      "Open-ended SJT questions",
+      "Test duration is less than 30 mins",
+    ],
   },
   {
-    title: <>Identify traits for any job</>,
+    title: <>In-Depth analysis with highly trained AI</>,
     description: (
       <>
-        From initial applications to your flight arrival, I'll work with you to
-        create a completely custom, highly detailed plan to smooth out the
-        immigration experience.
+        Our AI analyses responses in real-time and asks follow-up questions to
+        provide a deeper, more insightful analysis.
       </>
     ),
-    features: ["Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum"],
+    link_text: "Get more info",
+    features: [
+      "Detailed report on the traits",
+      "Secured report for your eyes only",
+      "Removes bias for accurate report",
+      "Visuals to understand the report",
+    ],
   },
 ];
 
@@ -84,7 +96,7 @@ const Home = () => {
   return (
     <section className='main'>
       {/* header */}
-      <Navbar/>
+      <Navbar />
       <Container fluid pb={75} pt={60} className='main-container'>
         {/* Hero Section */}
         <Paper radius={50}>
@@ -99,7 +111,7 @@ const Home = () => {
                       display: "block",
                     }}
                   >
-                    Better HR.
+                    Test Yourself.
                   </span>
                   <span
                     className='text-typewriter'
@@ -109,18 +121,19 @@ const Home = () => {
                       animationDelay: "2s",
                     }}
                   >
-                    Better Futures.
+                    Improve Yourself.
                   </span>
                 </Text>
               </Box>
               <Box className='hero-card-left-bottom'>
                 <Text className='hero-description  animate__animated animate__fadeInUp'>
-                  I help{" "}
-                  <span className='hero-description-bold'>individuals</span>{" "}
-                  navigate the immigration process and{" "}
-                  <span className='hero-description-bold'>businesses</span>{" "}
-                  solve complex people problems through personalized HR
-                  consulting services.
+                  Our{" "}
+                  <span className='hero-description-bold'>
+                    AI-powered psychometric tests
+                  </span>{" "}
+                  are made just for you. Get personalised insights, whether
+                  you're looking for a new job or trying to grow in your career.
+                  individuals
                 </Text>
               </Box>
             </Grid.Col>
@@ -164,6 +177,7 @@ const Home = () => {
                 title={item.title}
                 description={item.description}
                 features={item.features}
+                link_text={item.link_text}
               />
             );
           })}

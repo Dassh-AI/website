@@ -7,13 +7,12 @@ import {
   Box,
   Burger,
   Drawer,
-  ScrollArea,
-  rem,
   UnstyledButton,
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import "../../styles/layout/navbar.css";
+import { color } from "../../contants/color";
 
 const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
@@ -56,7 +55,7 @@ const Navbar = () => {
             src={isScrolled ? "assets/DasshAI-dark.svg" : "assets/DasshAI.svg"}
           />
 
-          <Group h='100%' gap={0} visibleFrom='sm'>
+          <Group h='100%' gap={0} visibleFrom='lg'>
             <a
               href='#'
               className={"link"}
@@ -86,7 +85,7 @@ const Navbar = () => {
             </a>
           </Group>
 
-          <Group visibleFrom='sm'>
+          <Group visibleFrom='lg'>
             <UnstyledButton
               style={{
                 borderRight: "1px solid #F4F5DC",
@@ -113,7 +112,7 @@ const Navbar = () => {
           <Burger
             opened={drawerOpened}
             onClick={toggleDrawer}
-            hiddenFrom='sm'
+            hiddenFrom='lg'
           />
         </Group>
       </header>
@@ -122,31 +121,51 @@ const Navbar = () => {
         opened={drawerOpened}
         onClose={closeDrawer}
         size='100%'
-        padding='md'
-        title='Navigation'
-        hiddenFrom='sm'
+        padding='0'
+        hiddenFrom='lg'
+        title={<Image src={"assets/DasshAI-dark.svg"} h={"1.2em"} />}
         zIndex={1000000}
+        styles={{
+          content: {
+            backgroundColor: color.grey, // Set the background color to red
+          },
+          header: {
+            backgroundColor: color.grey,
+            padding: "10px 20px",
+          },
+        }}
       >
-        <ScrollArea h={`calc(100vh - ${rem(80)})`} mx='-md'>
-          <Divider my='sm' />
+        {/* <Divider my='sm' /> */}
 
-          <a href='#' className={"link"}>
-            Features
-          </a>
-          <a href='#' className={"link"}>
-            About
-          </a>
-          <a href='#' className={"link"}>
-            Science
-          </a>
+        <a href='#' className={"link drawer-link"}>
+          Features
+        </a>
+        <a href='#' className={"link drawer-link"}>
+          About
+        </a>
+        <a href='#' className={"link drawer-link"}>
+          Science
+        </a>
 
-          <Divider my='sm' />
+        <Divider my='sm' />
 
-          <Group justify='center' grow pb='xl' px='md'>
-            <Button variant='default'>Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
-        </ScrollArea>
+        <Group justify='center' grow pb='xl' px='md'>
+          <Button variant='outline' color={color.green}>
+            Sign in
+          </Button>
+          <Button color='#F8E805'>
+            <Text
+              style={{
+                color: "#063A3A",
+                fontFamily: "Inter",
+                fontWeight: 600,
+                fontSize: "18px",
+              }}
+            >
+              Book a Call
+            </Text>
+          </Button>
+        </Group>
       </Drawer>
     </Box>
   );

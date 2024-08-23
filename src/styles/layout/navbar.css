@@ -45,3 +45,9 @@
     padding-right: 20px;
   }
 }
+
+.drawer-link {
+  color:#063a3a !important;
+  padding-left: 30px;
+  padding-right: 30px;
+}
