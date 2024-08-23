@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function Home() {
 
-  const [activeComponent, setActiveComponent] = useState('Assessments');
+  const [activeComponent, setActiveComponent] = useState('Employees');
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
   const renderComponent = () => {
     switch (activeComponent) {
