@@ -113,6 +113,7 @@ const Navbar = () => {
             opened={drawerOpened}
             onClick={toggleDrawer}
             hiddenFrom='lg'
+            color={color.grey}
           />
         </Group>
       </header>
