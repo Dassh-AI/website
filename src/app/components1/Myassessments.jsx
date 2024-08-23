@@ -18,7 +18,7 @@ const data = [
 //   // Add more data here
 ];
 
-const AssessmentCard = ({ title, description, date }) => {
+const AssessmentCard = ({ title, description, date , onClick }) => {
     return (
         <div style={{backgroundColor:"#F4F5DC"}} className=" px-5 py-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
             <div className='flex justify-between'>
@@ -26,7 +26,7 @@ const AssessmentCard = ({ title, description, date }) => {
                     <h2 style={{fontWeight:600}} className="text-lg font-bold">{title}</h2>
                     <p style={{fontWeight:400}} className="text-gray-700 mb-3 text-xs w-4/6">{description}</p>
                 </div>
-                <div style={{backgroundColor:"#063A3A"}} className='h-fit p-2 rounded-lg cursor-pointer mr-2'>
+                <div onClick={onClick} style={{backgroundColor:"#063A3A"}} className='h-fit p-2 rounded-lg cursor-pointer mr-2'>
                     <Image
                         src={arrow}
                         width={13}
@@ -43,7 +43,7 @@ const AssessmentCard = ({ title, description, date }) => {
   );
 };
 
-const Myassessments = () => {
+const Myassessments = ({ onCardClick }) => {
     return (
         <div className="py-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-10">
       {data.map((assessment) => (
@@ -52,6 +52,7 @@ const Myassessments = () => {
           title={assessment.title}
           description={assessment.description}
           date={assessment.date}
+          onClick={() => onCardClick(assessment)}
           />
           ))}
     </div>

@@ -9,13 +9,14 @@ export default function RadioSlide({ question, options, selectedOption, onOption
                 {options.map((option, index) => (
                 <div style={{fontWeight:400}} className="flex text-brand-green1 mb-3" key={index}>
                     <input
+                    
                     type="radio"
                     id={`${question}-${index}`}
                     name={question}
                     value={option}
                     checked={selectedOption === option}
                     onChange={() => onOptionChange(option)}
-                    className="mr-2"
+                    className={`mr-2`}
                     />
                     <label className="text-sm" htmlFor={`${question}-${index}`}>{option}</label>
                 </div>
