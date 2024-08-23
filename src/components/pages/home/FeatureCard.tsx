@@ -45,12 +45,29 @@ const FeatureCard: React.FC<IFeatureCard> = (props) => {
       }
     };
   }, []);
+
+  const titleLines =
+    typeof props.title === "string"
+      ? props.title.split("<br/>")
+      : [props.title];
+
   return (
     <Box className='feature-section-box' mt={100} ref={componentRef}>
       <Grid>
         <Grid.Col span={{ base: 12, md: 6 }}>
-          <Text className={`section-title ${inView ? "text-typewriter" : ""}`}>
-            {props.title}
+          <Text className='section-title'>
+            {titleLines.map((line, index) => (
+              <span
+                key={index}
+                className={`${inView ? "text-typewriter" : ""}`}
+                style={{
+                  display: "block",
+                  animationDelay: `${index * 2}s`,
+                }}
+              >
+                {line}
+              </span>
+            ))}
           </Text>
           <Text
             className={`section-description ${

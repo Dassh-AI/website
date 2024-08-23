@@ -43,7 +43,7 @@ const SHOWCASE_DATA = [
 
 const FEATURE_DATA = [
   {
-    title: <>Identify traits for any job</>,
+    title: "Identify traits for<br/> any job",
     description: (
       <>
         Our AI pinpoints the key traits needed for any job, ensuring a perfect
@@ -59,7 +59,7 @@ const FEATURE_DATA = [
     ],
   },
   {
-    title: <>Generate Test Personalised to the Job Role</>,
+    title: "Generate Test Personalised<br/> to the Job Role",
     description: (
       <>
         Create tailored tests for any job role, with questions designed to match
@@ -75,7 +75,7 @@ const FEATURE_DATA = [
     ],
   },
   {
-    title: <>In-Depth analysis with highly trained AI</>,
+    title: "In-Depth analysis with<br/> highly trained AI",
     description: (
       <>
         Our AI analyses responses in real-time and asks follow-up questions to
@@ -118,7 +118,7 @@ const Home = () => {
                     style={{
                       whiteSpace: "pre",
                       display: "block",
-                      animationDelay: "2s",
+                      animationDelay: "2.8s",
                     }}
                   >
                     Improve Yourself.
@@ -174,7 +174,7 @@ const Home = () => {
             return (
               <FeatureCard
                 key={index}
-                title={item.title}
+                title={item.title as string}
                 description={item.description}
                 features={item.features}
                 link_text={item.link_text}

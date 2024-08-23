@@ -71,7 +71,7 @@
 
 @media screen and (max-width: 767px) {
   .hero-title {
-    font-size: 2.5em;
+    font-size: 2.3em;
     line-height: 1.2;
   }
 }
@@ -146,7 +146,7 @@
   .showcase-white {
     padding: 2.5em 1em;
     border-radius: 2em;
-    height: auto
+    height: auto;
   }
 }
 
@@ -177,7 +177,6 @@
   color: #063a3a;
   margin-top: 1.5em;
 }
-
 
 /* for desktop */
 .showcase-title {
@@ -218,12 +217,7 @@
   .showcase-description {
     bottom: -15%;
   }
-
-  
-
-
 }
-
 
 .showcase-icon {
   opacity: 0;
@@ -234,8 +228,8 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 767px)  {
-  .showcase-icon{
+@media screen and (max-width: 767px) {
+  .showcase-icon {
     opacity: 1;
   }
 }
@@ -272,6 +266,11 @@
   color: #f4f5dc;
 }
 
+@media (max-width: 756px) {
+  .section-title {
+    font-size: 1.7em;
+  }
+}
 .section-description {
   font-family: "Rubik", sans-serif;
   font-size: 1em;
@@ -340,7 +339,6 @@
 }
 
 @keyframes blink {
-
   from,
   to {
     border-color: transparent;
@@ -358,9 +356,7 @@
   /* Cursor effect */
   width: 0;
   /* Starting width */
-  animation:
-    typewriter 2s steps(40) 1s 1 normal both,
-    /* Typewriter effect */
-    blink 0.75s step-end infinite;
+  animation: typewriter 2s steps(40) 1s 1 normal both,
+    /* Typewriter effect */ blink 0.75s step-end infinite;
   /* Cursor blinking effect */
 }
