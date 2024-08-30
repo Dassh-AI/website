@@ -27,6 +27,20 @@
   padding: 4em 7.63em 4.06em 4.5em;
 }
 
+@media screen and (max-width: 1200px) {
+  .hero-card-left-top {
+    padding: 3em 3em;
+    height: 20em;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .hero-card-left-top {
+    padding: 2.5em 1.5em;
+    border-radius: 2em 2em 0px 0px;
+  }
+}
+
 .hero-card-left-bottom {
   background-color: #9ba78b;
   border-radius: 0px 0px 0px 2.5em;
@@ -36,11 +50,9 @@
   padding: 4em 7.63em 4.06em 4.5em;
 }
 
-/* Media query for screens smaller than 756px */
-@media screen and (max-width: 991px) {
-  .hero-card-left-top {
-    padding: 2.5em 1.5em;
-    border-radius: 2em 2em 0px 0px;
+@media screen and (max-width: 1200px) {
+  .hero-card-left-bottom {
+    padding: 3em 3em;
   }
 }
 
@@ -67,6 +79,20 @@
   font-weight: 700;
   font-size: 3.5em;
   line-height: 81px;
+}
+
+@media screen and (max-width: 1400px) {
+  .hero-title {
+    font-size: 3em;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hero-title {
+    font-size: 2.7em;
+    line-height: 1.2;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -100,6 +126,12 @@
   border-color: #000000;
   border-width: 1px;
   height: 42.63em;
+}
+
+@media screen and (max-width: 1200px) {
+  .hero-card-right {
+    height: 33.31em;
+  }
 }
 
 @media (max-width: 992px) {
@@ -359,4 +391,10 @@
   animation: typewriter 2s steps(40) 1s 1 normal both,
     /* Typewriter effect */ blink 0.75s step-end infinite;
   /* Cursor blinking effect */
+}
+
+.tryFreeButton {
+  position: absolute;
+    right: 38vw;
+    bottom: 6vh;
 }

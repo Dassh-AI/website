@@ -1,9 +1,10 @@
-import { Box, Container, Grid, Image, Paper, Text } from "@mantine/core";
+import { Box, Button, Container, Grid, Image, Paper, Text } from "@mantine/core";
 import "../styles/pages/home.css";
 import ShowcaseCard from "../components/pages/home/Card";
 import FeatureCard from "../components/pages/home/FeatureCard";
 import Footbar from "../components/layout/footbar";
 import Navbar from "../components/layout/navbar";
+import { color } from "../contants/color";
 
 const SHOWCASE_DATA = [
   {
@@ -124,6 +125,19 @@ const Home = () => {
                     Improve Yourself.
                   </span>
                 </Text>
+                <Text className='text-typewriter'
+                  style={{
+                    whiteSpace: "pre",
+                    display: "block",
+                    animationDelay: "4.8s",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                  }} 
+                  c={color.green}>
+
+                  Behavioural analysis powered by GenAI
+
+                </Text>
               </Box>
               <Box className='hero-card-left-bottom'>
                 <Text className='hero-description  animate__animated animate__fadeInUp'>
@@ -135,6 +149,9 @@ const Home = () => {
                   you're looking for a new job or trying to grow in your career.
                   individuals
                 </Text>
+                <Button className="tryFreeButton">
+                  <Text>Try for Free</Text>
+                </Button>
               </Box>
             </Grid.Col>
 

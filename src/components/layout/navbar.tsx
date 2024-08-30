@@ -223,7 +223,7 @@ const Navbar = () => {
             src={isScrolled ? "assets/DasshAI-dark.svg" : "assets/DasshAI.svg"}
           />
 
-          <Group h='100%' gap={0} visibleFrom='lg'>
+          <Group h='100%' w={"30vw"} justify="space-between" gap={0} visibleFrom='lg'>
             <a
               href='#'
               className={"link"}
