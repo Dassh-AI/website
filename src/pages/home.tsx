@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Image, Paper, Text } from "@mantine/core";
+import { Anchor, Box, Button, Container, Grid, Image, Paper, Text } from "@mantine/core";
 import "../styles/pages/home.css";
 import ShowcaseCard from "../components/pages/home/Card";
 import FeatureCard from "../components/pages/home/FeatureCard";
@@ -132,7 +132,7 @@ const Home = () => {
                     animationDelay: "4.8s",
                     fontSize: "14px",
                     fontWeight: 500,
-                  }} 
+                  }}
                   c={color.green}>
 
                   Behavioural analysis powered by GenAI
@@ -149,8 +149,8 @@ const Home = () => {
                   you're looking for a new job or trying to grow in your career.
                   individuals
                 </Text>
-                <Button className="tryFreeButton">
-                  <Text>Try for Free</Text>
+                <Button className="tryFreeButton" size={"sm"} px={12} h={30} color={"#F8E805"}>
+                  <Anchor c={color.green} fw={600} href={"https://dev.dassh.xyz"} target="_blank">Try for Free</Anchor>
                 </Button>
               </Box>
             </Grid.Col>
@@ -174,6 +174,7 @@ const Home = () => {
                   tag={item.tag}
                   title={item.title}
                   description={item.description}
+                  background={ index%2 ===1 ? "#CBDCBD" : "#F4F5DC"}
                 />
               </Grid.Col>
             );
@@ -203,7 +204,7 @@ const Home = () => {
         {/* Pre Footer */}
         <Text className='pre-footer-text' pt={75}>
           Are you ready to{" "}
-          <span className='pre-footer-text-underline'>Transform?</span>
+          <a  href={"https://dev.dassh.xyz"} target="_blank" className='pre-footer-text-underline'>Transform?</a>
         </Text>
       </Container>
       {/* Footer */}

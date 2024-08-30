@@ -156,6 +156,10 @@
 
 /* ShowcaseCard */
 
+.showcase-color-light-green {
+  background-color: #CBDCBD !important;
+}
+
 .showcase-white {
   background-color: #f4f5dc;
   padding: 3em 2.2em;
@@ -356,7 +360,6 @@
 }
 
 .pre-footer-text-underline {
-  border-bottom: 1px solid #f7e902;
   color: #f7e902;
 }
 
@@ -395,6 +398,26 @@
 
 .tryFreeButton {
   position: absolute;
-    right: 38vw;
-    bottom: 6vh;
+  right: 38vw;
+  bottom: 3vw;
+}
+
+@media screen and (max-width: 1400px) {
+  .tryFreeButton {
+    bottom: -2vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .tryFreeButton {
+    bottom: 12vw;
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .tryFreeButton {
+    position: relative;
+    bottom: -15px;
+    left:0px
+  }
 }

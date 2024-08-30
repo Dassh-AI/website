@@ -8,6 +8,7 @@ interface IShowcaseCard {
   tag: string;
   title: JSX.Element | string;
   description: JSX.Element | string;
+  background?: string;
 }
 
 const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
@@ -44,10 +45,12 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
   return (
     <Paper
       radius={50}
-      className={`showcase-white  ${
-        inView ? "animate__animated animate__fadeInUp" : ""
-      }`}
+      className={`showcase-white  ${inView ? "animate__animated animate__fadeInUp" : ""
+        }`}
       ref={componentRef}
+      style={{
+        backgroundColor: props?.background ? props?.background : "#F4F5DC"
+      }}
     >
       {isMobile ? (
         <Box>
