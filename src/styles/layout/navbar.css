@@ -6,18 +6,18 @@
   height: 80px;
   padding-left: 80px;
   padding-right: 80px;
-  background: #063a3a;
-  background-size: 100% 0%;
-  background-repeat: no-repeat;
+  background-color: #063a3a;
+  border-radius: 0;
+  transition: background-color 0.3s ease, border-radius 0.3s ease, margin 0.3s ease;
   z-index: 1000;
-  transition: background-size 0.3s ease, border-radius 0.3s ease, background-color 0.3s ease;
 }
 
 .header.scrolled {
-  background-size: 100% 100%;
-  border-radius: 50px;
   background-color: #CBDCBD;
-  /* Final color */
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 
 .link {
@@ -43,6 +43,12 @@
   .header {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .header.scrolled{
+    border-radius: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
 
