@@ -1,4 +1,13 @@
-import { Anchor, Box, Button, Container, Grid, Image, Paper, Text } from "@mantine/core";
+import {
+  Anchor,
+  Box,
+  Button,
+  Container,
+  Grid,
+  Image,
+  Paper,
+  Text,
+} from "@mantine/core";
 import "../styles/pages/home.css";
 import ShowcaseCard from "../components/pages/home/Card";
 import FeatureCard from "../components/pages/home/FeatureCard";
@@ -52,6 +61,7 @@ const FEATURE_DATA = [
       </>
     ),
     link_text: "Try it for free",
+    url: "https://dev.dassh.xyz",
     features: [
       "Evaluate Job in 1 min",
       "Identify trait for any profile",
@@ -68,6 +78,7 @@ const FEATURE_DATA = [
       </>
     ),
     link_text: "Generate for free",
+    url: "https://dev.dassh.xyz",
     features: [
       "Get reliable tests within seconds",
       "AI conversation like ChatGPT",
@@ -84,6 +95,7 @@ const FEATURE_DATA = [
       </>
     ),
     link_text: "Get more info",
+    url: "https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations",
     features: [
       "Detailed report on the traits",
       "Secured report for your eyes only",
@@ -125,7 +137,8 @@ const Home = () => {
                     Improve Yourself.
                   </span>
                 </Text>
-                <Text className='text-typewriter'
+                <Text
+                  className='text-typewriter'
                   style={{
                     whiteSpace: "pre",
                     display: "block",
@@ -133,10 +146,9 @@ const Home = () => {
                     fontSize: "14px",
                     fontWeight: 500,
                   }}
-                  c={color.green}>
-
+                  c={color.green}
+                >
                   Behavioural analysis powered by GenAI
-
                 </Text>
               </Box>
               <Box className='hero-card-left-bottom'>
@@ -149,8 +161,21 @@ const Home = () => {
                   you're looking for a new job or trying to grow in your career.
                   individuals
                 </Text>
-                <Button className="tryFreeButton" size={"sm"} px={12} h={30} color={"#F8E805"}>
-                  <Anchor c={color.green} fw={600} href={"https://dev.dassh.xyz"} target="_blank">Try for Free</Anchor>
+                <Button
+                  className='tryFreeButton'
+                  size={"sm"}
+                  px={12}
+                  h={30}
+                  color={"#F8E805"}
+                >
+                  <Anchor
+                    c={color.green}
+                    fw={600}
+                    href={"https://dev.dassh.xyz"}
+                    target='_blank'
+                  >
+                    Try for Free
+                  </Anchor>
                 </Button>
               </Box>
             </Grid.Col>
@@ -174,7 +199,7 @@ const Home = () => {
                   tag={item.tag}
                   title={item.title}
                   description={item.description}
-                  background={ index%2 ===1 ? "#CBDCBD" : "#F4F5DC"}
+                  background={index % 2 === 1 ? "#CBDCBD" : "#F4F5DC"}
                 />
               </Grid.Col>
             );
@@ -196,6 +221,7 @@ const Home = () => {
                 description={item.description}
                 features={item.features}
                 link_text={item.link_text}
+                url={item.url}
               />
             );
           })}
@@ -204,7 +230,14 @@ const Home = () => {
         {/* Pre Footer */}
         <Text className='pre-footer-text' pt={75}>
           Are you ready to{" "}
-          <a  href={"https://dev.dassh.xyz"} target="_blank" className='pre-footer-text-underline'>Transform?</a>
+          <a
+            href={"https://dev.dassh.xyz"}
+            target='_blank'
+            rel='noreferrer'
+            className='pre-footer-text-underline'
+          >
+            Transform?
+          </a>
         </Text>
       </Container>
       {/* Footer */}

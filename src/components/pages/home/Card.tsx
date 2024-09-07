@@ -31,13 +31,15 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
       }
     );
 
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
+    const currentRef = componentRef.current; // Save the current ref value
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef); // Use the saved ref value in cleanup
       }
     };
   }, []);
@@ -45,11 +47,12 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
   return (
     <Paper
       radius={50}
-      className={`showcase-white  ${inView ? "animate__animated animate__fadeInUp" : ""
-        }`}
+      className={`showcase-white  ${
+        inView ? "animate__animated animate__fadeInUp" : ""
+      }`}
       ref={componentRef}
       style={{
-        backgroundColor: props?.background ? props?.background : "#F4F5DC"
+        backgroundColor: props?.background ? props?.background : "#F4F5DC",
       }}
     >
       {isMobile ? (

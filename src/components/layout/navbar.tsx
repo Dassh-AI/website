@@ -7,9 +7,8 @@ import {
   Burger,
   Drawer,
   UnstyledButton,
-  Text,
   Divider,
-  Anchor
+  Anchor,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import "../../styles/layout/navbar.css";
@@ -38,20 +37,22 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleCall = () => {
-    const url = "https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"
-  }
-
   return (
     <Box py={25} style={{ paddingTop: "60px" }}>
-      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <header className={`header ${isScrolled ? "scrolled" : ""}`}>
         <Group justify='space-between' h='100%'>
           <Image
             src={isScrolled ? "assets/DasshAI-dark.svg" : "assets/DasshAI.svg"}
           />
 
-          <Group h='100%' w={"30vw"} justify="space-between" gap={0} visibleFrom='lg'>
-            <a
+          <Group
+            h='100%'
+            w={"30vw"}
+            justify='space-between'
+            gap={0}
+            visibleFrom='lg'
+          >
+            <Anchor
               href='#'
               className={"link"}
               style={{
@@ -59,8 +60,8 @@ const Navbar = () => {
               }}
             >
               Features
-            </a>
-            <a
+            </Anchor>
+            <Anchor
               href='#'
               className={"link"}
               style={{
@@ -68,8 +69,8 @@ const Navbar = () => {
               }}
             >
               About
-            </a>
-            <a
+            </Anchor>
+            <Anchor
               href='#'
               className={"link"}
               style={{
@@ -77,7 +78,7 @@ const Navbar = () => {
               }}
             >
               Science
-            </a>
+            </Anchor>
           </Group>
 
           <Group visibleFrom='lg'>
@@ -88,9 +89,17 @@ const Navbar = () => {
                 color: isScrolled ? "#063A3A" : "#F4F5DC",
               }}
             >
-              <Text>Sign in</Text>
+              <Anchor
+                href={"https://dev.dassh.xyz"}
+                style={{
+                  color: isScrolled ? color.green : color.grey,
+                  fontWeight: 600,
+                }}
+              >
+                Sign in
+              </Anchor>
             </UnstyledButton>
-            <Button color='#F8E805' onClick={handleCall}>
+            <Button color='#F8E805'>
               <Anchor
                 style={{
                   color: "#063A3A",
@@ -98,8 +107,11 @@ const Navbar = () => {
                   fontWeight: 600,
                   fontSize: "18px",
                 }}
-                href={"https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"}
-                target="_blank"
+                href={
+                  "https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"
+                }
+                target='_blank'
+                rel='noreferrer'
               >
                 Book a Call
               </Anchor>
@@ -133,21 +145,29 @@ const Navbar = () => {
           },
         }}
       >
-        <a href='#' className={"link drawer-link"}>
+        <Anchor href='#' className={"link drawer-link"}>
           Features
-        </a>
-        <a href='#' className={"link drawer-link"}>
+        </Anchor>
+        <Anchor href='#' className={"link drawer-link"}>
           About
-        </a>
-        <a href='#' className={"link drawer-link"}>
+        </Anchor>
+        <Anchor href='#' className={"link drawer-link"}>
           Science
-        </a>
+        </Anchor>
 
         <Divider my='sm' />
 
         <Group justify='center' grow pb='xl' px='md'>
           <Button variant='outline' color={color.green}>
-            Sign in
+            <Anchor
+              href={"https://dev.dassh.xyz"}
+              style={{
+                color: color.green,
+                fontWeight: 600,
+              }}
+            >
+              Sign in
+            </Anchor>
           </Button>
           <Button color='#F8E805'>
             <Anchor
@@ -157,8 +177,10 @@ const Navbar = () => {
                 fontWeight: 600,
                 fontSize: "18px",
               }}
-              href={"https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"}
-              target="_blank"
+              href={
+                "https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"
+              }
+              target='_blank'
             >
               Book a Call
             </Anchor>

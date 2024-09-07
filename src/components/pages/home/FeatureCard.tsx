@@ -15,6 +15,7 @@ interface IFeatureCard {
   description: JSX.Element | string;
   features: string[];
   link_text: string;
+  url: string;
 }
 
 const FeatureCard: React.FC<IFeatureCard> = (props) => {
@@ -35,13 +36,15 @@ const FeatureCard: React.FC<IFeatureCard> = (props) => {
       }
     );
 
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
+    const currentRef = componentRef.current; // Save the current ref value
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef); // Use the saved ref value in cleanup
       }
     };
   }, []);
@@ -50,6 +53,13 @@ const FeatureCard: React.FC<IFeatureCard> = (props) => {
     typeof props.title === "string"
       ? props.title.split("<br/>")
       : [props.title];
+
+  const handleLinkOpen = () => {
+    window.open(
+      props.url,
+      "_blank" // <- This is what makes it open in a new window.
+    );
+  };
 
   return (
     <Box className='feature-section-box' mt={100} ref={componentRef}>
@@ -83,6 +93,7 @@ const FeatureCard: React.FC<IFeatureCard> = (props) => {
             style={{
               cursor: "pointer",
             }}
+            onClick={handleLinkOpen}
           >
             <Text
               className={`section-link ${
