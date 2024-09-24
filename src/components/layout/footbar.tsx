@@ -1,13 +1,15 @@
 import { Anchor, Group, Box, Text } from "@mantine/core";
 import { IconMail } from "@tabler/icons-react";
 import "../../styles/layout/footer.css";
+const logo = "/assets/DasshAI-dark.png";
 
 const Footer = () => {
   return (
     <div className={"footer"}>
       <div className={"inner"}>
-        <div></div>
-
+                <div className="logo-container">
+                <img src={logo} alt="Dassh AI Logo" className="footer-logo" />
+                </div>
         <Group className={"links"}>
           <Box>© 2024 Dassh.AI Technologies. Mumbai, India</Box>
         </Group>
@@ -24,6 +26,7 @@ const Footer = () => {
             </Text>
           </Anchor>
         </Group>
+
       </div>
     </div>
   );

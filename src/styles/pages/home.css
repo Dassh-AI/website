@@ -351,7 +351,7 @@
 /* Pre footer */
 .pre-footer-text {
   text-align: center;
-  color: #f4f5dc;
+  color: #063A3A;
   font-size: 2em;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 600;
@@ -360,7 +360,7 @@
 }
 
 .pre-footer-text-underline {
-  color: #f7e902;
+  color: #063A3A;
 }
 
 @keyframes typewriter {
@@ -420,4 +420,63 @@
     bottom: -15px;
     left:0px
   }
+}
+
+/* CSS File */
+
+/* Styles for the main box */
+.showcase-white {
+  border-radius: 60px 20px 0 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  width: calc(100% + 16px);
+  position: relative;
+  left: -16px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+/* Styles for the inner flex container */
+.inner-flex-container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+/* Styles for the left inner box */
+.left-inner-box {
+  flex: 1;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 70px;
+  font-family: 'Inter', sans-serif; /* Ensure to use quotes for font family */
+}
+
+/* Styles for the button */
+.custom-button {
+  background-color: #063A3A;
+  color: #fff;
+  margin-top: 160px;
+  width: 120px;
+}
+
+/* Styles for the right inner box */
+.right-inner-box {
+  flex: 1;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Rubik', sans-serif;
+  color: #063A3A;
+  font-size: 12px;
+}
+
+/* Styles for the pre-footer text */
+.pre-footer-box {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 20px;
 }

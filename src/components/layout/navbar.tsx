@@ -37,12 +37,23 @@ const Navbar = () => {
     };
   }, []);
 
+
+  const scrollToSection = (id:string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <Box py={25} style={{ paddingTop: "60px" }}>
       <header className={`header ${isScrolled ? "scrolled" : ""}`}>
         <Group justify='space-between' h='100%'>
           <Image
-            src={isScrolled ? "assets/DasshAI-dark.svg" : "assets/DasshAI.svg"}
+          style={{
+            width:"160px"
+          }}
+            src={isScrolled ? "assets/DasshAI-dark.png" : "assets/DasshAI-light.png"}
           />
 
           <Group
@@ -53,29 +64,31 @@ const Navbar = () => {
             visibleFrom='lg'
           >
             <Anchor
-              href='#'
+              onClick={() => scrollToSection("ai-tools-help")} 
               className={"link"}
               style={{
-                color: isScrolled ? "#063A3A" : "#CBDCBD",
+                color: isScrolled ? "#063A3A" : "#CBDCBD",textDecoration: "none",
               }}
             >
               Features
             </Anchor>
             <Anchor
-              href='#'
+              onClick={() => scrollToSection("about-us")} 
               className={"link"}
               style={{
-                color: isScrolled ? "#063A3A" : "#CBDCBD",
+                color: isScrolled ? "#063A3A" : "#CBDCBD",textDecoration: "none",
               }}
             >
               About
             </Anchor>
             <Anchor
-              href='#'
+              href='https://destiny-horse-92e.notion.site/The-Science-Behind-Dassh-AI-A-Smarter-Way-to-Evaluate-Behavioural-Traits-10a412876f6480068a0cd5ea02232d26'
               className={"link"}
               style={{
-                color: isScrolled ? "#063A3A" : "#CBDCBD",
+                color: isScrolled ? "#063A3A" : "#CBDCBD",textDecoration: "none",
               }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Science
             </Anchor>
@@ -92,7 +105,7 @@ const Navbar = () => {
               <Anchor
                 href={"https://dev.dassh.xyz"}
                 style={{
-                  color: isScrolled ? color.green : color.grey,
+                  color: isScrolled ? color.green : color.grey,textDecoration: "none",
                   fontWeight: 600,
                 }}
               >
@@ -106,6 +119,7 @@ const Navbar = () => {
                   fontFamily: "Inter",
                   fontWeight: 600,
                   fontSize: "18px",
+                  textDecoration: "none",
                 }}
                 href={
                   "https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"
