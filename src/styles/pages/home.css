@@ -422,10 +422,8 @@
   }
 }
 
-/* CSS File */
-
-/* Styles for the main box */
-.showcase-white {
+/* More specific styles for the showcase component */
+.showcase-white.dassh-showcase {
   border-radius: 60px 20px 0 0;
   margin-left: 0;
   margin-right: 0;
@@ -439,24 +437,24 @@
 }
 
 /* Styles for the inner flex container */
-.inner-flex-container {
+.dassh-showcase .inner-flex-container {
   display: flex;
   flex: 1;
   width: 100%;
 }
 
 /* Styles for the left inner box */
-.left-inner-box {
+.dassh-showcase .left-inner-box {
   flex: 1;
   padding-right: 20px;
   display: flex;
   flex-direction: column;
   padding-left: 70px;
-  font-family: 'Inter', sans-serif; /* Ensure to use quotes for font family */
+  font-family: 'Inter', sans-serif;
 }
 
 /* Styles for the button */
-.custom-button {
+.dassh-showcase .custom-button {
   background-color: #063A3A;
   color: #fff;
   margin-top: 160px;
@@ -464,7 +462,7 @@
 }
 
 /* Styles for the right inner box */
-.right-inner-box {
+.dassh-showcase .right-inner-box {
   flex: 1;
   padding-left: 20px;
   display: flex;
@@ -475,7 +473,7 @@
 }
 
 /* Styles for the pre-footer text */
-.pre-footer-box {
+.dassh-showcase .pre-footer-box {
   text-align: center;
   margin-top: auto;
   padding-top: 20px;

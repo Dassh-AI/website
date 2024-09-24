@@ -9,11 +9,11 @@ interface IShowcaseCard {
   title: JSX.Element | string;
   description: JSX.Element | string;
   background?: string;
+  url: string; 
 }
 
 const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
   const { isMobile } = useDeviceSize();
-
   const [inView, setInView] = useState(false);
   const componentRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +23,7 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setInView(true);
-          observer.disconnect(); // Stop observing once it's in view
+          observer.disconnect();
         }
       },
       {
@@ -31,7 +31,7 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
       }
     );
 
-    const currentRef = componentRef.current; // Save the current ref value
+    const currentRef = componentRef.current;
 
     if (currentRef) {
       observer.observe(currentRef);
@@ -39,7 +39,7 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
 
     return () => {
       if (currentRef) {
-        observer.unobserve(currentRef); // Use the saved ref value in cleanup
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -47,9 +47,7 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
   return (
     <Paper
       radius={50}
-      className={`showcase-white  ${
-        inView ? "animate__animated animate__fadeInUp" : ""
-      }`}
+      className={`showcase-white ${inView ? "animate__animated animate__fadeInUp" : ""}`}
       ref={componentRef}
       style={{
         backgroundColor: props?.background ? props?.background : "#F4F5DC",
@@ -58,13 +56,9 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
       {isMobile ? (
         <Box>
           <Text className='showcase-tag'>{props.tag}</Text>
-
           <Box>
             <Text className='mobile-showcase-title'>{props.title}</Text>
-            <Text className='mobile-showcase-description'>
-              {props.description}
-            </Text>
-
+            <Text className='mobile-showcase-description'>{props.description}</Text>
             <Group mt='1em'>
               <Text className='showcase-learn-more'>Learn More</Text>
               <ActionIcon
@@ -72,6 +66,10 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
                 size={25}
                 radius={10}
                 className='showcase-icon'
+                component="a" 
+                href={props.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
               >
                 <IconArrowUpRight stroke={1.5} size={18} />
               </ActionIcon>
@@ -83,15 +81,18 @@ const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {
           <Group justify='space-between'>
             <Text className='showcase-tag'>{props.tag}</Text>
             <ActionIcon
+              component="a" 
+              href={props.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
               color={color.green}
               size={35}
               radius={10}
-              className='showcase-icon '
+              className='showcase-icon'
             >
               <IconArrowUpRight stroke={1.5} />
             </ActionIcon>
           </Group>
-
           <Box>
             <Text className='showcase-title'>{props.title}</Text>
             <Text className='showcase-description'>{props.description}</Text>

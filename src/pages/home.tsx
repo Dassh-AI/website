@@ -29,11 +29,13 @@ const SHOWCASE_DATA = [
     description: (
       <>
         Ensure you’re hiring the best fit for your team with our AI-powered
-        psychometric tests. Quickly assess candidates' traits and
+        behavioural analysis tests. Quickly assess candidates' traits and
         decision-making skills to make informed hiring decisions with
         confidence.
       </>
+      
     ),
+    url: "https://dev.dassh.xyz",
   },
   {
     tag: "Talent Development",
@@ -45,10 +47,11 @@ const SHOWCASE_DATA = [
     description: (
       <>
         Identify growth opportunities within your team using our AI-powered
-        psychometric tests. Assess your employees' strengths and areas for
+        behvioral analysis tests. Assess your employees' strengths and areas for
         improvement to tailor training programs that drive their success.
       </>
     ),
+    url: "https://dev.dassh.xyz",
   },
 ];
 
@@ -156,7 +159,7 @@ const Home = () => {
                 <Text className='hero-description  animate__animated animate__fadeInUp'>
                   Our{" "}
                   <span className='hero-description-bold'>
-                    AI-powered psychometric tests
+                    AI-powered behvioral analysis tests
                   </span>{" "}
                   are made just for you. Get personalised insights, whether
                   you're looking for a new job or trying to grow in your career.
@@ -208,7 +211,9 @@ const Home = () => {
         tag={item.tag}
         title={item.title}
         description={item.description}
+
         background={index % 2 === 1 ? "#CBDCBD" : "#F4F5DC"}
+        url={item.url} 
       />
     </Grid.Col>
   ))}
@@ -245,8 +250,8 @@ const Home = () => {
 
 <Box 
   mt={0} 
-  className="showcase-white" 
-  id = "about-us"
+  className="showcase-white dassh-showcase" 
+  id="about-us"
 >
   <Box className="inner-flex-container">
     <Box className="left-inner-box">
@@ -289,6 +294,7 @@ const Home = () => {
     </Text>
   </Box>
 </Box>
+
 
 
 
