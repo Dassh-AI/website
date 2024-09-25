@@ -9,6 +9,7 @@
  align-items: center;
  padding: 25px 60px;
  text-align: center;
+ font-weight: 400;
 
  @media (max-width: 767px) {
    flex-direction: column;
@@ -23,6 +24,7 @@
 }
 
 .footer-logo {
-  width: 120px; 
-  height: auto;  
+  width: 100px; 
+  height: auto; 
+  
 }

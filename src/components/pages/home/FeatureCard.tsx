@@ -16,6 +16,7 @@ interface IFeatureCard {
   features: string[];
   link_text: string;
   url: string;
+  className?:string;
 }
 
 const FeatureCard: React.FC<IFeatureCard> = (props) => {

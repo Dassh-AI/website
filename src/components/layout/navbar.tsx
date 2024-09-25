@@ -13,7 +13,15 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import "../../styles/layout/navbar.css";
 import { color } from "../../contants/color";
+import { TrackingEvents } from '../../utils/tracking';
 
+
+const handleSigninClick = () => {
+  TrackingEvents.SIGN_IN(); 
+};
+const handleBookaCall = () => {
+  TrackingEvents.BOOK_A_CALL(); 
+};
 const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
@@ -108,6 +116,8 @@ const Navbar = () => {
                   color: isScrolled ? color.green : color.grey,textDecoration: "none",
                   fontWeight: 600,
                 }}
+                onClick={handleSigninClick}
+
               >
                 Sign in
               </Anchor>
@@ -126,6 +136,7 @@ const Navbar = () => {
                 }
                 target='_blank'
                 rel='noreferrer'
+                onClick={handleBookaCall}
               >
                 Book a Call
               </Anchor>

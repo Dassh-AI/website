@@ -14,8 +14,15 @@ import FeatureCard from "../components/pages/home/FeatureCard";
 import Footbar from "../components/layout/footbar";
 import Navbar from "../components/layout/navbar";
 import { color } from "../contants/color";
-import { IconWeight } from "@tabler/icons-react";
+import { TrackingEvents } from '../utils/tracking';
 
+const handleTryForFreeClick = () => {
+  TrackingEvents.TRY_FOR_FREE(); 
+};
+
+const handleBookaCallonAboutUs= () => {
+  TrackingEvents.BOOK_A_CALL_ABOUT_US(); 
+};
 const SHOWCASE_DATA = [
   {
     tag: "Talent Acquisition",
@@ -186,6 +193,8 @@ const Home = () => {
                       fontSize: "16px",
                       fontWeight: 700,
                     }}
+                    onClick={handleTryForFreeClick}
+
                   >
                     Try for Free
                   </Anchor>
@@ -205,24 +214,26 @@ const Home = () => {
 
         {/* Showcase Section */}
         <Grid mt={65}>
-  {SHOWCASE_DATA.map((item, index) => (
-    <Grid.Col span={{ base: 12, md: 6 }} p={0} key={index}>
-      <ShowcaseCard
-        tag={item.tag}
-        title={item.title}
-        description={item.description}
+            {SHOWCASE_DATA.map((item, index) => (
+            <Grid.Col span={{ base: 12, md: 6 }} p={0} key={index}>
+              <ShowcaseCard
+                tag={item.tag}
+                title={item.title}
+                description={item.description}
 
-        background={index % 2 === 1 ? "#CBDCBD" : "#F4F5DC"}
-        url={item.url} 
-      />
-    </Grid.Col>
-  ))}
-</Grid>
+                background={index % 2 === 1 ? "#CBDCBD" : "#F4F5DC"}
+                url={item.url} 
+              />
+            </Grid.Col>
+          ))}
+        </Grid>
 
   {/* AI Tools Section */}
-<Box mt={75} id="ai-tools-help">
-  <Text className='section-heading'>Our AI tools helps</Text>
+  <Box mt={75} id="ai-tools-help">
+  <Text className='section-heading'>Our AI tools help</Text>
   {FEATURE_DATA.map((item, index) => {
+    const isLastItem = index === FEATURE_DATA.length - 1;
+
     return (
       <FeatureCard
         key={index}
@@ -231,10 +242,12 @@ const Home = () => {
         features={item.features}
         link_text={item.link_text}
         url={item.url}
+        className={isLastItem ? "feature-card no-border" : "feature-card"}
       />
     );
   })}
 </Box>
+
 
 
 
@@ -249,39 +262,42 @@ const Home = () => {
 {/* About Us Section */}
 
 <Box 
-  mt={0} 
+  mt={75} 
   className="showcase-white dassh-showcase" 
   id="about-us"
 >
   <Box className="inner-flex-container">
     <Box className="left-inner-box">
-      <Text className="hero-title">
+      <Text className="section-title" style={{ color: '#063A3A', fontWeight: 700 }}>
         Meet the Brains <br /> Behind Dassh.AI
       </Text>
 
       <Button 
         className="custom-button" 
-        onClick={() => window.open('https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations', '_blank')} 
+        onClick={() => {
+          handleBookaCallonAboutUs(); 
+          window.open('https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations', '_blank');
+        }} 
       >
         Book a Call
       </Button>
     </Box>
 
     <Box className="right-inner-box">
-      <Text mt="md" className="hero-description">
+      <Text mt="md" style={{ fontWeight: 430, textAlign: 'justify' }}>
         We’re the minds behind Dassh.Ai, a GenAI tool designed to assess employees' behavioural traits within organisations. Built by three IIT Bombay alumni with guidance from CHROs and Learning & Development experts of global firms, our tool delivers innovative solutions for today’s challenges.
       </Text>
-      <Text mt="md" className="hero-description">
+      <Text mt="md" style={{ fontWeight: 430, textAlign: 'justify' }}>
         We’re keeping our identities a mystery (for now), but here’s a hint: one of us is a software developer at a major global bank, another is a serial entrepreneur with global ventures, and the third is a Gujarati consultant at a top MNC.
       </Text>
-      <Text mt="md" className="hero-description">
+      <Text mt="md" style={{ fontWeight: 430, textAlign: 'justify' }}>
         You can trust us - we thrive on solving challenges and bringing innovative solutions to life. We’re committed to delivering the highest quality. Try our tool for free, give us feedback, and help us make it even better!
       </Text>
     </Box>
   </Box>
 
   <Box className="pre-footer-box">
-    <Text className='pre-footer-text'>
+    <Text className='pre-footer-text' style={{ fontWeight: 700 }}>
       Are you ready to{" "}
       <a
         href={"https://dev.dassh.xyz"}
@@ -294,6 +310,7 @@ const Home = () => {
     </Text>
   </Box>
 </Box>
+
 
 
 
