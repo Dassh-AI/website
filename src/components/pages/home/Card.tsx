@@ -10,6 +10,7 @@ interface IShowcaseCard {
   description: JSX.Element | string;
   background?: string;
   url: string; 
+  onClick?: () => void;
 }
 
 const ShowcaseCard: React.FC<IShowcaseCard> = (props) => {

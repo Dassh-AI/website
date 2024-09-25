@@ -16,13 +16,7 @@ import Navbar from "../components/layout/navbar";
 import { color } from "../contants/color";
 import { TrackingEvents } from '../utils/tracking';
 
-const handleTryForFreeClick = () => {
-  TrackingEvents.TRY_FOR_FREE(); 
-};
 
-const handleBookaCallonAboutUs= () => {
-  TrackingEvents.BOOK_A_CALL_ABOUT_US(); 
-};
 const SHOWCASE_DATA = [
   {
     tag: "Talent Acquisition",
@@ -193,8 +187,9 @@ const Home = () => {
                       fontSize: "16px",
                       fontWeight: 700,
                     }}
-                    onClick={handleTryForFreeClick}
-
+                    onClick={() => {
+                      TrackingEvents.TRY_FOR_FREE(); 
+                    }}
                   >
                     Try for Free
                   </Anchor>
@@ -212,17 +207,25 @@ const Home = () => {
           </Grid>
         </Paper>
 
-        {/* Showcase Section */}
-        <Grid mt={65}>
-            {SHOWCASE_DATA.map((item, index) => (
+  {/* Showcase Section */}
+  <Grid mt={65}>
+          {SHOWCASE_DATA.map((item, index) => (
             <Grid.Col span={{ base: 12, md: 6 }} p={0} key={index}>
               <ShowcaseCard
                 tag={item.tag}
                 title={item.title}
                 description={item.description}
-
                 background={index % 2 === 1 ? "#CBDCBD" : "#F4F5DC"}
-                url={item.url} 
+                url={item.url}
+                onClick={() => {
+                  if (item.tag === "Talent Acquisition") {
+                    TrackingEvents.Talent_Acquisition();
+                  } else if (item.tag === "Talent Development") {
+                    TrackingEvents.Talent_Development(); 
+                  }
+                  else if(item.tag)
+                  window.open(item.url, '_blank'); 
+                }}
               />
             </Grid.Col>
           ))}
@@ -243,7 +246,20 @@ const Home = () => {
         link_text={item.link_text}
         url={item.url}
         className={isLastItem ? "feature-card no-border" : "feature-card"}
-      />
+        onClick={() => {
+          if (item.link_text.includes("Try it for free")) {
+            TrackingEvents.Identify_traits();
+          }
+          else if(item.link_text.includes("Generate for free")) {
+            TrackingEvents.Generate_For_Free();
+          }
+          else if(item.link_text.includes("Get more info")) {
+            TrackingEvents.Get_More_Info();
+          }
+
+        }
+      }
+        />
     );
   })}
 </Box>
@@ -275,7 +291,7 @@ const Home = () => {
       <Button 
         className="custom-button" 
         onClick={() => {
-          handleBookaCallonAboutUs(); 
+          TrackingEvents.BOOK_A_CALL_ABOUT_US(); 
           window.open('https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations', '_blank');
         }} 
       >
