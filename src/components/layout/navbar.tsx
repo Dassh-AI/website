@@ -61,7 +61,7 @@ const Navbar = () => {
           style={{
             width:"160px"
           }}
-            src={isScrolled ? "assets/DasshAI-dark.png" : "assets/DasshAI-light.png"}
+            src={isScrolled ? "assets/DasshAI-dark.svg" : "assets/DasshAI-light.svg"}
           />
 
           <Group

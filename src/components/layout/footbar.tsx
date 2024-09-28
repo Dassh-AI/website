@@ -1,7 +1,7 @@
 import { Anchor, Group, Box, Text } from "@mantine/core";
 import { IconMailFilled } from "@tabler/icons-react";
 import "../../styles/layout/footer.css";
-const logo = "/assets/DasshAI-dark.png";
+const logo = "/assets/DasshAI-dark.svg";
 
 const Footer = () => {
   return (
