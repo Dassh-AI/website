@@ -61,7 +61,7 @@ const Navbar = () => {
           style={{
             width:"160px"
           }}
-            src={isScrolled ? "assets/DasshAI-dark.png" : "assets/DasshAI-light.png"}
+            src={isScrolled ? "assets/DasshAI-dark.svg" : "assets/DasshAI-light.svg"}
           />
 
           <Group
@@ -153,65 +153,85 @@ const Navbar = () => {
       </header>
 
       <Drawer
-        opened={drawerOpened}
-        onClose={closeDrawer}
-        size='100%'
-        padding='0'
-        hiddenFrom='lg'
-        title={<Image src={"assets/DasshAI-dark.svg"} h={"1.2em"} />}
-        zIndex={1000000}
-        styles={{
-          content: {
-            backgroundColor: color.grey,
-          },
-          header: {
-            backgroundColor: color.grey,
-            padding: "10px 20px",
-          },
+      opened={drawerOpened}
+      onClose={closeDrawer}
+      size='100%'
+      padding='0'
+      hiddenFrom='lg'
+      title={<Image src={"assets/DasshAI-dark.svg"} h={"1.2em"} />}
+      zIndex={1000000}
+      styles={{
+        content: {
+          backgroundColor: color.grey,
+        },
+        header: {
+          backgroundColor: color.grey,
+          padding: "10px 20px",
+        },
+      }}
+    >
+      <Anchor 
+        className={"link drawer-link"} 
+        onClick={() => {
+          scrollToSection("ai-tools-help");
+          closeDrawer();
         }}
       >
-        <Anchor href='#' className={"link drawer-link"}>
-          Features
-        </Anchor>
-        <Anchor href='#' className={"link drawer-link"}>
-          About
-        </Anchor>
-        <Anchor href='#' className={"link drawer-link"}>
-          Science
-        </Anchor>
+        Features
+      </Anchor>
+      <Anchor 
+        className={"link drawer-link"} 
+        onClick={() => {
+          scrollToSection("about-us");
+          closeDrawer(); 
+        }}
+      >
+        About
+      </Anchor>
+      <Anchor 
+        className={"link drawer-link"} 
+        onClick={() => {
+          scrollToSection("science");
+          closeDrawer(); 
+        }}
+      >
+        Science
+      </Anchor>
 
-        <Divider my='sm' />
+      <Divider my='sm' />
 
-        <Group justify='center' grow pb='xl' px='md'>
-          <Button variant='outline' color={color.green}>
-            <Anchor
-              href={"https://dev.dassh.xyz"}
-              style={{
-                color: color.green,
-                fontWeight: 600,
-              }}
-            >
-              Sign in
-            </Anchor>
-          </Button>
-          <Button color='#F8E805'>
-            <Anchor
-              style={{
-                color: "#063A3A",
-                fontFamily: "Inter",
-                fontWeight: 600,
-                fontSize: "18px",
-              }}
-              href={
-                "https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"
-              }
-              target='_blank'
-            >
-              Book a Call
-            </Anchor>
-          </Button>
-        </Group>
-      </Drawer>
+      <Group justify='center' grow pb='xl' px='md'>
+        <Button variant='outline' color={color.green}>
+          <Anchor
+            href={"https://dev.dassh.xyz"}
+            style={{
+              color: color.green,
+              fontWeight: 600,
+            }}
+            onClick={handleSigninClick}
+          >
+            Sign in
+          </Anchor>
+        </Button>
+        <Button color='#F8E805'>
+          <Anchor
+            style={{
+              color: "#063A3A",
+              fontFamily: "Inter",
+              fontWeight: 600,
+              fontSize: "18px",
+            }}
+            href={
+              "https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations"
+            }
+            target='_blank'
+            onClick={handleBookaCall}
+          >
+            Book a Call
+          </Anchor>
+        </Button>
+      </Group>
+    </Drawer>
     </Box>
   );
 };

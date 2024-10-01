@@ -500,6 +500,15 @@
   .dassh-showcase .inner-flex-container {
     flex-direction: column; 
     padding-left: 20px; 
+    border-radius: 0 !important;
+  }
+
+
+  .showcase-white.dassh-showcase
+  {
+    border-radius: 0 0 0 0; 
+    padding-top: 0;
+
   }
 
   .dassh-showcase .left-inner-box,
@@ -514,7 +523,7 @@
   }
 
   .dassh-showcase .custom-button {
-    margin-top: 50px; 
+    margin-top: 20px; 
     width: 100%; 
   }
 }
