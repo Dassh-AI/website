@@ -16,9 +16,9 @@ const Footer = () => {
 
         <Group>
           <IconMailFilled stroke={1.5} color="black" /> 
-          <Anchor href='mailto:info@dassh.ai'>
+          <Anchor href='mailto:admin@dassh.ai'>
             <Text style={{ color: "black", fontWeight: '400' }}>
-              info@dassh.ai
+              admin@dassh.ai
             </Text>
           </Anchor>
         </Group>

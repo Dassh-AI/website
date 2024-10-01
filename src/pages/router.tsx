@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React, { useEffect, useMemo, useCallback } from "react";
+import React, { useMemo } from "react";
 
 
 const HomeComponent = React.lazy(() => import("./home"));
