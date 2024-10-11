@@ -1,0 +1,1 @@
+export const PORTAL_URL = "https://dev.dassh.ai"

@@ -14,6 +14,7 @@ import { useDisclosure } from "@mantine/hooks";
 import "../../styles/layout/navbar.css";
 import { color } from "../../contants/color";
 import { TrackingEvents } from '../../utils/tracking';
+import { PORTAL_URL } from "../../contants/url";
 
 
 const handleSigninClick = () => {
@@ -111,7 +112,7 @@ const Navbar = () => {
               }}
             >
               <Anchor
-                href={"https://dev.dassh.xyz"}
+                href={PORTAL_URL}
                 style={{
                   color: isScrolled ? color.green : color.grey,textDecoration: "none",
                   fontWeight: 600,
@@ -203,7 +204,7 @@ const Navbar = () => {
       <Group justify='center' grow pb='xl' px='md'>
         <Button variant='outline' color={color.green}>
           <Anchor
-            href={"https://dev.dassh.xyz"}
+            href={PORTAL_URL}
             style={{
               color: color.green,
               fontWeight: 600,

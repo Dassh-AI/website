@@ -15,6 +15,7 @@ import Footbar from "../components/layout/footbar";
 import Navbar from "../components/layout/navbar";
 import { color } from "../contants/color";
 import { TrackingEvents } from '../utils/tracking';
+import { PORTAL_URL } from "../contants/url";
 
 
 const SHOWCASE_DATA = [
@@ -36,7 +37,7 @@ const SHOWCASE_DATA = [
       </>
       
     ),
-    url: "https://dev.dassh.xyz",
+    url: PORTAL_URL,
   },
   {
     tag: "Talent Development",
@@ -52,7 +53,7 @@ const SHOWCASE_DATA = [
         improvement to tailor training programs that drive their success.
       </>
     ),
-    url: "https://dev.dassh.xyz",
+    url: PORTAL_URL,
   },
 ];
 
@@ -66,7 +67,7 @@ const FEATURE_DATA = [
       </>
     ),
     link_text: "Try it for free",
-    url: "https://dev.dassh.xyz",
+    url: PORTAL_URL,
     features: [
       "Evaluate Job in 1 min",
       "Identify trait for any profile",
@@ -83,7 +84,7 @@ const FEATURE_DATA = [
       </>
     ),
     link_text: "Generate for free",
-    url: "https://dev.dassh.xyz",
+    url: PORTAL_URL,
     features: [
       "Get reliable tests within seconds",
       "AI conversation like ChatGPT",
@@ -180,7 +181,7 @@ const Home = () => {
                   <Anchor
                     c={color.green}
                     fw={700}
-                    href={"https://dev.dassh.xyz"}
+                    href={PORTAL_URL}
                     target='_blank'
                     style={{
                       textDecoration: "none",
@@ -316,7 +317,7 @@ const Home = () => {
     <Text className='pre-footer-text' style={{ fontWeight: 700 }}>
       Are you ready to{" "}
       <a
-        href={"https://dev.dassh.xyz"}
+        href={PORTAL_URL}
         target='_blank'
         rel='noreferrer'
         className='pre-footer-text-underline'
