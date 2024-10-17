@@ -293,7 +293,7 @@ const Home = () => {
         className="custom-button" 
         onClick={() => {
           TrackingEvents.BOOK_A_CALL_ABOUT_US(); 
-          window.open('https://calendly.com/harshitmodi-iitb/dassh-ai-tool-for-organisations', '_blank');
+          window.open('https://calendly.com/teamdassh-ai/30min', '_blank');
         }} 
       >
         Book a Call
