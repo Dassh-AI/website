@@ -4,7 +4,6 @@ import {
   Button,
   Container,
   Grid,
-  Image,
   Paper,
   Text,
 } from "@mantine/core";
@@ -118,11 +117,11 @@ const Home = () => {
         {/* Hero Section */}
         <Paper radius={50}>
           <Grid>
-            <Grid.Col span={{ base: 12, md: 7 }} p={0}>
+            <Grid.Col span={{ base: 12, md: 12 }} p={0}>
               <Box className="hero-card-left-top">
                 <Text className="hero-title">
                   <span
-                    className="text-typewriter"
+                    // className="text-typewriter"
                     style={{
                       whiteSpace: "pre",
                       display: "block",
@@ -131,22 +130,22 @@ const Home = () => {
                     Test Yourself.
                   </span>
                   <span
-                    className="text-typewriter"
+                    // className="text-typewriter"
                     style={{
                       whiteSpace: "pre",
                       display: "block",
-                      animationDelay: "2.8s",
+                      // animationDelay: "2.8s",
                     }}
                   >
                     Improve Yourself.
                   </span>
                 </Text>
                 <Text
-                  className="text-typewriter"
+                  // className="text-typewriter"
                   style={{
                     whiteSpace: "pre",
                     display: "block",
-                    animationDelay: "4.8s",
+                    // animationDelay: "4.8s",
                     fontSize: "14px",
                     fontWeight: 500,
                   }}
@@ -154,16 +153,7 @@ const Home = () => {
                 >
                   Behavioural analysis powered by GenAI
                 </Text>
-              </Box>
-              <Box className="hero-card-left-bottom">
-                <Text className="hero-description  animate__animated animate__fadeInUp">
-                  Our{" "}
-                  <span className="hero-description-bold">
-                    AI-powered behvioral analysis tests
-                  </span>{" "}
-                  are made just for you. Get personalised insights, whether
-                  you're looking for a new job or trying to grow in your career.
-                </Text>
+
                 <Button
                   className="tryFreeButton "
                   size={"sm"}
@@ -175,6 +165,7 @@ const Home = () => {
                     borderRadius: "8px",
                     fontWeight: 600,
                   }}
+                  mt={40}
                 >
                   <Anchor
                     c={color.green}
@@ -194,14 +185,16 @@ const Home = () => {
                   </Anchor>
                 </Button>
               </Box>
-            </Grid.Col>
-
-            <Grid.Col span={{ base: 12, md: 5 }} p={0}>
-              <Image
-                radius="md"
-                src="assets/hero.png"
-                className="hero-card-right"
-              />
+              <Box className="hero-card-left-bottom">
+                <Text className="hero-description  animate__animated animate__fadeInUp">
+                  Our{" "}
+                  <span className="hero-description-bold">
+                    AI-powered behvioral analysis tests
+                  </span>{" "}
+                  are made just for you. Get personalised insights, whether
+                  you're looking for a new job or trying to grow in your career.
+                </Text>
+              </Box>
             </Grid.Col>
           </Grid>
         </Paper>

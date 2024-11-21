@@ -20,10 +20,10 @@
 
 .hero-card-left-top {
   background-color: #cbdcbd;
-  border-radius: 2.5em 0 0 0;
+  border-radius: 2.5em 2.5em 0 0;
   border-color: #000000;
   border-width: 1px;
-  height: 29.32em;
+  height: 25em;
   padding: 4em 7.63em 4.06em 4.5em;
 }
 
@@ -43,7 +43,7 @@
 
 .hero-card-left-bottom {
   background-color: #9ba78b;
-  border-radius: 0px 0px 0px 2.5em;
+  border-radius: 0px 0px 2.5em 2.5em;
   border-color: #000000;
   border-width: 1px;
   height: 13.31em;
@@ -400,32 +400,6 @@
   animation: typewriter 2s steps(40) 1s 1 normal both,
     /* Typewriter effect */ blink 0.75s step-end infinite;
   /* Cursor blinking effect */
-}
-
-.tryFreeButton {
-  position: absolute;
-  right: 38vw;
-  bottom: 5vw;
-}
-
-@media screen and (max-width: 1400px) {
-  .tryFreeButton {
-    bottom: -2vw;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .tryFreeButton {
-    bottom: 12vw;
-  }
-}
-
-@media screen and (max-width: 975px) {
-  .tryFreeButton {
-    position: relative;
-    bottom: -15px;
-    left:0px
-  }
 }
 
 /* More specific styles for the showcase component */
