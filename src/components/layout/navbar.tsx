@@ -22,6 +22,26 @@ const handleSigninClick = () => {
 const handleBookaCall = () => {
   TrackingEvents.BOOK_A_CALL();
 };
+
+const navbar_links = [
+  {
+    name: "Features",
+    url: "ai-tools-help",
+  },
+  {
+    name: "About",
+    url: "about-us",
+  },
+  {
+    name: "Compare Plans",
+    url: "compare-plans",
+  },
+  {
+    name: "Get Started",
+    url: "get-started",
+  }
+]
+
 const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
@@ -60,11 +80,7 @@ const Navbar = () => {
             style={{
               width: "160px",
             }}
-            src={
-              isScrolled
-                ? "assets/DasshAI-dark.svg"
-                : "assets/DasshAI-light.svg"
-            }
+            src={"assets/DasshAI-dark.svg"}
           />
 
           <Group
@@ -74,38 +90,39 @@ const Navbar = () => {
             gap={0}
             visibleFrom="lg"
           >
-            <Anchor
+            {/* <Anchor
               onClick={() => scrollToSection("ai-tools-help")}
               className={"link"}
               style={{
-                color: isScrolled ? "#063A3A" : "#CBDCBD",
+                color: "#063A3A",
                 textDecoration: "none",
               }}
             >
               Features
-            </Anchor>
-            <Anchor
-              onClick={() => scrollToSection("about-us")}
-              className={"link"}
-              style={{
-                color: isScrolled ? "#063A3A" : "#CBDCBD",
-                textDecoration: "none",
-              }}
-            >
-              About
-            </Anchor>
-            <Anchor
+            </Anchor> */}
+            {navbar_links.map((link) => (
+              <Anchor
+                onClick={() => scrollToSection(link.url)}
+                className={"link"}
+                style={{
+                  color: color.green,
+                }}
+              >
+                {link.name}
+              </Anchor>
+            ))}
+            {/* <Anchor
               href="https://destiny-horse-92e.notion.site/The-Science-Behind-Dassh-AI-A-Smarter-Way-to-Evaluate-Behavioural-Traits-10a412876f6480068a0cd5ea02232d26"
               className={"link"}
               style={{
-                color: isScrolled ? "#063A3A" : "#CBDCBD",
+                color: "#063A3A",
                 textDecoration: "none",
               }}
               target="_blank"
               rel="noopener noreferrer"
             >
               Science
-            </Anchor>
+            </Anchor> */}
           </Group>
 
           <Group visibleFrom="lg">
@@ -113,13 +130,13 @@ const Navbar = () => {
               style={{
                 borderRight: "1px solid #F4F5DC",
                 padding: "5px 20px",
-                color: isScrolled ? "#063A3A" : "#F4F5DC",
+                color: "#063A3A",
               }}
             >
               <Anchor
                 href={PORTAL_URL}
                 style={{
-                  color: isScrolled ? color.green : color.grey,
+                  color: color.green,
                   textDecoration: "none",
                   fontWeight: 600,
                 }}
@@ -151,7 +168,7 @@ const Navbar = () => {
             opened={drawerOpened}
             onClick={toggleDrawer}
             hiddenFrom="lg"
-            color={isScrolled ? color.green : color.grey}
+            color={isScrolled ? color.green : color.dull_green}
           />
         </Group>
       </header>
@@ -166,10 +183,10 @@ const Navbar = () => {
         zIndex={1000000}
         styles={{
           content: {
-            backgroundColor: color.grey,
+            backgroundColor: color.dull_green,
           },
           header: {
-            backgroundColor: color.grey,
+            backgroundColor: color.dull_green,
             padding: "10px 20px",
           },
         }}

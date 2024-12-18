@@ -6,7 +6,7 @@
   height: 80px;
   padding-left: 80px;
   padding-right: 80px;
-  background-color: #063a3a;
+  background-color: #fff;
   border-radius: 0;
   transition: background-color 0.3s ease, border-radius 0.3s ease, margin 0.3s ease;
   z-index: 1000;
