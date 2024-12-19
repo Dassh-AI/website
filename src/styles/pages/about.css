@@ -1,0 +1,17 @@
+.title{
+    font-size: 48px
+}
+
+.card-title{
+    font-size: 22px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+.card-description{
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    text-align: justify;
+    text-align-last: center;
+}
