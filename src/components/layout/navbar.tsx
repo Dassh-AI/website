@@ -100,13 +100,14 @@ const Navbar = () => {
             >
               Features
             </Anchor> */}
-            {navbar_links.map((link) => (
+            {navbar_links.map((link, index) => (
               <Anchor
                 onClick={() => scrollToSection(link.url)}
                 className={"link"}
                 style={{
                   color: color.green,
                 }}
+                key={index}
               >
                 {link.name}
               </Anchor>

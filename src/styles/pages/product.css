@@ -1,0 +1,83 @@
+.hero{
+    padding-top: 100px;
+}
+
+.hero-title{
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.hero-description{
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+
+.product-subtitle{
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.product-subdescription{
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* product card */
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-icon-container{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #CBDCBD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title{
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.card-description{
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+/* working section */
+
+.working-container{
+    padding: 80px 60px;
+}
+
+.working-title{
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+
+.working-description{
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    text-align-last: center;
+}

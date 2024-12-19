@@ -7,4 +7,5 @@ export const color = {
   white: "#FFFFFF",
   light_yellow: "#F4F5DC",
   yellow: "#F8E805",
+  black: "#000000",
 };
