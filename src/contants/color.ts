@@ -3,6 +3,7 @@ export const color = {
   bright_green: "#118383",
   light_green: "#0F8383",
   dull_green: "#CBDCBD",
+  dimmed_green: "#6B8989",
   dark_dull_green: "#9BA78B",
   white: "#FFFFFF",
   light_yellow: "#F4F5DC",

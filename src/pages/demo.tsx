@@ -2,7 +2,7 @@ import { Box, Paper, SimpleGrid } from "@mantine/core";
 import Footbar from "../components/layout/footbar";
 import Navbar from "../components/layout/navbar";
 import { useSearchParams } from "react-router-dom";
-import ProductCard from "../components/card/Product";
+import ProductCard from "../components/card/ProductCard";
 import DemoForm from "../components/form/DemoForm";
 
 const PRODUCTS = {
