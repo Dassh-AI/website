@@ -4,6 +4,7 @@ import Navbar from "../components/layout/navbar";
 import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/card/ProductCard";
 import DemoForm from "../components/form/DemoForm";
+import useDeviceSize from "../utils/useDeviceSize";
 
 const PRODUCTS = {
   ATS: {
@@ -33,12 +34,13 @@ const Demo = () => {
   const product = searchParams.get("product") as TProduct | null;
 
   const products = product ? { [product]: PRODUCTS[product] } : PRODUCTS;
+  const {isMobile} = useDeviceSize();
 
   return (
     <section className="main">
       {/* header */}
       <Navbar />
-      <Paper mt={80} mih={"73vh"} px={40} pb={80}>
+      <Paper mt={80} mih={"73vh"} px={isMobile? 10: 40} pb={80}>
         <SimpleGrid
           cols={{
             xs: 1,

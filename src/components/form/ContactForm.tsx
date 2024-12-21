@@ -1,8 +1,7 @@
 import {
-    Box,
+  Box,
   Button,
   Group,
-  Paper,
   SimpleGrid,
   Text,
   Textarea,
@@ -13,11 +12,9 @@ import { contactSchema, TContactSchema } from "./contact";
 import "../../styles/component/input.css";
 import { color } from "../../contants/color";
 import {
-    IconHomeFilled,
-  IconMail,
+  IconHomeFilled,
   IconMailFilled,
   IconPhoneFilled,
-  IconUser,
   IconUserFilled,
 } from "@tabler/icons-react";
 
@@ -86,7 +83,6 @@ const ContactForm = () => {
             label="Subject"
             placeholder="Your subject"
             required
-            mt={10}
             {...form.getInputProps("subject")}
             classNames={{
               label: `inputLabel font-bold`,
@@ -105,6 +101,7 @@ const ContactForm = () => {
             label: `inputLabel font-bold`,
             input: `inputBox font-bold`,
           }}
+          mt={10}
         />
 
         <Group justify="center" mt={40}>

@@ -11,6 +11,7 @@ import useDeviceSize from "../../../utils/useDeviceSize";
 import ProductFeatureCard from "../../card/ProductFeatureCard";
 import { color } from "../../../contants/color";
 import ProductWorkingCard from "../../card/ProductWorkingCard";
+import "../../../styles/pages/product.css";
 
 interface IProductPageProps {
   title: string;
@@ -45,7 +46,7 @@ interface IProductPageProps {
 const ProductPage: React.FC<IProductPageProps> = (props) => {
   const { width, isMobile } = useDeviceSize();
   return (
-    <Paper px={80} pb={80}>
+    <Paper px={isMobile ? 20 :80} pb={80}>
       <Box mt={100}>
         <Text fw={700} c={color.light_green} className="hero-title">
           {props.title}
@@ -75,13 +76,15 @@ const ProductPage: React.FC<IProductPageProps> = (props) => {
             src={props.images[0]}
             alt="feature"
             fit="contain"
-            height={isMobile ? width * 0.8 : width * 0.25}
+            height={isMobile ? 'auto' : width * 0.25}
+            width={isMobile ? width * 0.8 : 'auto'}
           />
           <Image
             src={props.images[1]}
             alt="feature"
             fit="contain"
-            height={isMobile ? width * 0.8 : width * 0.25}
+            height={isMobile ? 'auto' : width * 0.25}
+            width={isMobile ? width * 0.8 : 'auto'}
           />
         </Group>
       </Box>

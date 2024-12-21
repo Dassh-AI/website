@@ -20,6 +20,7 @@ import {
   IconPhone,
 } from "@tabler/icons-react";
 import ContactForm from "../components/form/ContactForm";
+import useDeviceSize from "../utils/useDeviceSize";
 
 const ABOUT_DATA = [
   {
@@ -86,6 +87,8 @@ const CONTACT_DATA = [
 ];
 
 const About = () => {
+  const { isMobile } = useDeviceSize();
+
   return (
     <section className="main">
       {/* header */}
@@ -109,7 +112,7 @@ const About = () => {
           </Text>
         </Center>
       </Container>
-      <Paper bg={color.green} px={80} py={40}>
+      <Paper bg={color.green} px={isMobile ? 20 : 80} py={40}>
         <Grid>
           <Grid.Col span={{ xs: 12, sm: 6, md: 6, lg: 4.5, xl: 4.5 }}>
             <Flex
@@ -162,18 +165,18 @@ const About = () => {
       </Container>
 
       <Paper>
-        <Grid px={80}>
+        <Grid px={isMobile ? 20 : 80}>
           <Grid.Col span={{ xs: 12, sm: 12, md: 12, lg: 8, xl: 8 }}>
             <Text c={color.green} fw={600} fz={30}>
               Leave a Message
             </Text>
-            <Card px={15} mb={40} withBorder shadow="xs">
+            <Card px={isMobile ? 0 : 15} mb={40} withBorder shadow="xs">
               <ContactForm />
             </Card>
           </Grid.Col>
           <Grid.Col span={{ xs: 12, sm: 12, md: 12, lg: 4, xl: 4 }}>
             {CONTACT_DATA.map((contact, index) => (
-              <Card key={index} px={15} mb={40}>
+              <Card key={index} px={15} mb={isMobile? 10: 40}>
                 <Text fw={500} c={color.green}>
                   {contact.title}
                 </Text>

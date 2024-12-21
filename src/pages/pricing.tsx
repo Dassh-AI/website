@@ -4,6 +4,7 @@ import Navbar from "../components/layout/navbar";
 import { color } from "../contants/color";
 import "../styles/pages/pricing.css";
 import PricingCard from "../components/card/PricingCard";
+import useDeviceSize from "../utils/useDeviceSize";
 
 const PRICING_DATA = [
   {
@@ -81,12 +82,14 @@ const PRICING_DATA = [
 ];
 
 const Pricing = () => {
+  const { isMobile } = useDeviceSize();
+  
   return (
     <section className="main">
       {/* header */}
       <Navbar />
 
-      <Paper py={80} px={80}>
+      <Paper py={80} px={isMobile? 20: 80}>
         <Box>
           <Text c={color.green} className="title">
             Flexible Pricing built for Dassh AI

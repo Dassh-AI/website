@@ -7,7 +7,6 @@ import {
 import Navbar from "../components/layout/navbar";
 import ProductPage from "../components/pages/product";
 import { color } from "../contants/color";
-import "../styles/pages/product.css";
 import Footbar from "../components/layout/footbar";
 
 const ATS_DATA = {

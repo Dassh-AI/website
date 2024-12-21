@@ -1,11 +1,11 @@
-/* hero-section */
-
+/* Hero Section */
 .hero-section {
-  /* center aligh all components  */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 30px;
 }
 
 .hero-title {
@@ -15,33 +15,12 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1400px) {
-  .hero-title {
-    font-size: 3em;
-    line-height: 1.2;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .hero-title {
-    font-size: 2.7em;
-    line-height: 1.2;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .hero-title {
-    font-size: 2.3em;
-    line-height: 1.2;
-  }
-}
-
 .hero-title-seperator {
   font-family: "Inter", sans-serif;
-  text-wrap: "balance";
+  text-wrap: balance;
   color: #063a3a;
   font-weight: 600;
-  font-size: "3rem";
+  font-size: inherit;
 }
 
 .hero-description {
@@ -50,12 +29,6 @@
   font-weight: 400;
   font-size: 1.25em;
   text-align: center;
-}
-
-@media screen and (max-width: 767px) {
-  .hero-description {
-    font-size: 1em;
-  }
 }
 
 .hero-description-bold {
@@ -70,7 +43,50 @@
   line-height: 1.5;
 }
 
+@media screen and (max-width: 1400px) {
+  .hero-title {
+    font-size: 3em;
+    line-height: 1.2;
+  }
 
+  .hero-title-seperator {
+    font-size: inherit;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hero-title {
+    font-size: 2.7em;
+    line-height: 1.2;
+  }
+
+  .hero-title-seperator {
+    font-size: inherit;
+  }
+
+  .hero-description {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-title {
+    font-size: 2.3em;
+    line-height: 1.2;
+  }
+
+  .hero-title-seperator {
+    font-size: inherit;
+  }
+
+  .hero-description {
+    font-size: 1em;
+  }
+
+  .hero-section {
+    padding: 15px;
+  }
+}
 
 /* Feature Section */
 .feature-section {
@@ -92,11 +108,48 @@
   text-align: center;
 }
 
-.feature-section-text{
+.feature-section-text {
   font-family: "Rubik", sans-serif;
   font-size: 1.25em;
 }
 
+@media screen and (max-width: 1400px) {
+  .feature-section-title {
+    font-size: 2.2em;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .feature-section-title {
+    font-size: 2em;
+  }
+
+  .feature-section-description {
+    font-size: 1.1em;
+  }
+
+  .feature-section-text {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .feature-section-title {
+    font-size: 1.8em;
+  }
+
+  .feature-section-description {
+    font-size: 1em;
+  }
+
+  .feature-section-text {
+    font-size: 1em;
+  }
+
+  .feature-section {
+    margin: 20px 10px;
+  }
+}
 
 /* Pre footer */
 .pre-footer-text {
@@ -113,11 +166,11 @@
   color: #063a3a;
 }
 
+/* Keyframe Animations */
 @keyframes typewriter {
   from {
     width: 0;
   }
-
   to {
     width: 100%;
   }
@@ -136,12 +189,8 @@
 
 .text-typewriter {
   overflow: hidden;
-  /* Ensures the text stays within the box */
   white-space: nowrap;
-  /* Cursor effect */
   width: 0;
-  /* Starting width */
   animation: typewriter 2s steps(40) 1s 1 normal both,
-    /* Typewriter effect */ blink 0.75s step-end infinite;
-  /* Cursor blinking effect */
+    blink 0.75s step-end infinite;
 }

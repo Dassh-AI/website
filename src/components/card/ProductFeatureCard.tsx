@@ -1,6 +1,7 @@
 import { Box, Card, Text } from "@mantine/core";
 import "../../styles/pages/product.css";
 import { color } from "../../contants/color";
+import useDeviceSize from "../../utils/useDeviceSize";
 
 interface IProductFeatureCard {
   icon: JSX.Element;
@@ -9,8 +10,10 @@ interface IProductFeatureCard {
 }
 
 const ProductFeatureCard: React.FC<IProductFeatureCard> = (props) => {
+  const { isMobile } = useDeviceSize();
+
   return (
-    <Card px={60} className="card-container">
+    <Card px={isMobile? 20: 60} className="card-container">
       {/* icon */}
       <Box className="card-icon-container">{props.icon}</Box>
 
