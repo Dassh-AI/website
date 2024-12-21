@@ -5,6 +5,7 @@ import { color } from "../contants/color";
 import "../styles/pages/pricing.css";
 import PricingCard from "../components/card/PricingCard";
 import useDeviceSize from "../utils/useDeviceSize";
+import { INTERNAL_URL } from "../contants/url";
 
 const PRICING_DATA = [
   {
@@ -23,6 +24,7 @@ const PRICING_DATA = [
         priceSub: "CV",
       },
     ],
+    link: `${INTERNAL_URL.DEMO}?product=ATS`,
   },
   {
     title: "Assessment Pro",
@@ -41,6 +43,7 @@ const PRICING_DATA = [
         priceSub: "Assessment/Candidate",
       },
     ],
+    link: `${INTERNAL_URL.DEMO}?product=BEHAVIOUR`,
   },
   {
     title: "Value",
@@ -65,6 +68,7 @@ const PRICING_DATA = [
         priceSub: "CV",
       },
     ],
+    link: `${INTERNAL_URL.DEMO}`,
   },
   {
     title: "Enterprise",
@@ -78,18 +82,19 @@ const PRICING_DATA = [
       "Proctoring for the assessment",
       "Dedicated support teams",
     ],
+    link: `${INTERNAL_URL.DEMO}?product=ENTERPRISE`,
   },
 ];
 
 const Pricing = () => {
   const { isMobile } = useDeviceSize();
-  
+
   return (
     <section className="main">
       {/* header */}
       <Navbar />
 
-      <Paper py={80} px={isMobile? 20: 80}>
+      <Paper py={80} px={isMobile ? 20 : 80}>
         <Box>
           <Text c={color.green} className="title">
             Flexible Pricing built for Dassh AI
@@ -125,6 +130,7 @@ const Pricing = () => {
                   selectText={pricing.selectText}
                   features={pricing.features}
                   pricing={pricing.pricing}
+                  link={pricing.link}
                 />
               </Box>
             ))}

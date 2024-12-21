@@ -13,6 +13,7 @@ import { color } from "../../contants/color";
 import { IconCircleCheck } from "@tabler/icons-react";
 import React from "react";
 import "../../styles/pages/pricing.css";
+import { openLink } from "../../utils/openLink";
 
 interface IPricingCardProps {
   tag?: string;
@@ -26,6 +27,7 @@ interface IPricingCardProps {
     price: string;
     priceSub?: string;
   }[];
+  link: string;
 }
 
 const PricingCard: React.FC<IPricingCardProps> = (props) => {
@@ -83,7 +85,14 @@ const PricingCard: React.FC<IPricingCardProps> = (props) => {
           ))}
         </Box>
 
-        <Button fullWidth color={color.yellow} mt={10}>
+        <Button
+          fullWidth
+          color={color.yellow}
+          mt={10}
+          onClick={() => {
+            openLink(props?.link, false);
+          }}
+        >
           <Text c={color.green} fw={500}>
             {props.selectText}
           </Text>

@@ -9,6 +9,7 @@ import ProductPage from "../components/pages/product";
 import { color } from "../contants/color";
 import "../styles/pages/product.css";
 import Footbar from "../components/layout/footbar";
+import { CALENDERLY_URL, INTERNAL_URL } from "../contants/url";
 
 const BEHAVIOUR_DATA = {
   title: "AI-driven Behaviour Analysis",
@@ -23,14 +24,16 @@ const BEHAVIOUR_DATA = {
       bg: color.yellow,
       textColor: color.green,
       text: "Get a Demo",
-      link: "/",
+      link: CALENDERLY_URL,
+      is_external: true,
     },
     {
       variant: "transparent",
       bg: color.white,
       textColor: color.light_green,
       text: "Choose Your Plan",
-      link: "/",
+      link: INTERNAL_URL.PRICING,
+      is_external: false,
     },
   ],
   images: [

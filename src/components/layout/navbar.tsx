@@ -14,7 +14,8 @@ import { useDisclosure } from "@mantine/hooks";
 import "../../styles/layout/navbar.css";
 import { color } from "../../contants/color";
 import { TrackingEvents } from "../../utils/tracking";
-import { CALENDERLY_URL, PORTAL_URL } from "../../contants/url";
+import { CALENDERLY_URL, INTERNAL_URL, PORTAL_URL } from "../../contants/url";
+import { openLink } from "../../utils/openLink";
 
 const handleSigninClick = () => {
   TrackingEvents.SIGN_IN();
@@ -26,21 +27,25 @@ const handleBookaCall = () => {
 const navbar_links = [
   {
     name: "Features",
-    url: "ai-tools-help",
+    url: "#ai-tools-help",
+    is_external: false,
   },
   {
     name: "About",
-    url: "about-us",
+    url: INTERNAL_URL.ABOUT,
+    is_external: false,
   },
   {
     name: "Compare Plans",
-    url: "compare-plans",
+    url: INTERNAL_URL.PRICING,
+    is_external: false,
   },
   {
     name: "Get Started",
-    url: "get-started",
-  }
-]
+    url: PORTAL_URL,
+    is_external: true,
+  },
+];
 
 const Navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
@@ -90,19 +95,19 @@ const Navbar = () => {
             gap={0}
             visibleFrom="lg"
           >
-            {/* <Anchor
-              onClick={() => scrollToSection("ai-tools-help")}
-              className={"link"}
-              style={{
-                color: "#063A3A",
-                textDecoration: "none",
-              }}
-            >
-              Features
-            </Anchor> */}
             {navbar_links.map((link, index) => (
               <Anchor
-                onClick={() => scrollToSection(link.url)}
+                onClick={() => {
+                  if (link.url.startsWith("#")) {
+                    if (window.location.pathname === "/") {
+                      scrollToSection(link.url.slice(1));
+                    } else {
+                      openLink(INTERNAL_URL.HOME, link.is_external);
+                    }
+                  } else {
+                    openLink(link.url, link.is_external);
+                  }
+                }}
                 className={"link"}
                 style={{
                   color: color.green,
@@ -112,18 +117,6 @@ const Navbar = () => {
                 {link.name}
               </Anchor>
             ))}
-            {/* <Anchor
-              href="https://destiny-horse-92e.notion.site/The-Science-Behind-Dassh-AI-A-Smarter-Way-to-Evaluate-Behavioural-Traits-10a412876f6480068a0cd5ea02232d26"
-              className={"link"}
-              style={{
-                color: "#063A3A",
-                textDecoration: "none",
-              }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Science
-            </Anchor> */}
           </Group>
 
           <Group visibleFrom="lg">
@@ -169,7 +162,7 @@ const Navbar = () => {
             opened={drawerOpened}
             onClick={toggleDrawer}
             hiddenFrom="lg"
-            color={isScrolled ? color.green : color.dull_green}
+            color={color.green}
           />
         </Group>
       </header>
@@ -192,33 +185,29 @@ const Navbar = () => {
           },
         }}
       >
-        <Anchor
-          className={"link drawer-link"}
-          onClick={() => {
-            scrollToSection("ai-tools-help");
-            closeDrawer();
-          }}
-        >
-          Features
-        </Anchor>
-        <Anchor
-          className={"link drawer-link"}
-          onClick={() => {
-            scrollToSection("about-us");
-            closeDrawer();
-          }}
-        >
-          About
-        </Anchor>
-        <Anchor
-          className={"link drawer-link"}
-          onClick={() => {
-            scrollToSection("science");
-            closeDrawer();
-          }}
-        >
-          Science
-        </Anchor>
+        {navbar_links.map((link, index) => (
+          <Anchor
+            onClick={() => {
+              if (link.url.startsWith("#")) {
+                if (window.location.pathname === "/") {
+                  closeDrawer();
+                  scrollToSection(link.url.slice(1));
+                } else {
+                  openLink(INTERNAL_URL.HOME, link.is_external);
+                }
+              } else {
+                openLink(link.url, link.is_external);
+              }
+            }}
+            className={"link drawer-link"}
+            style={{
+              color: color.green,
+            }}
+            key={index}
+          >
+            {link.name}
+          </Anchor>
+        ))}
 
         <Divider my="sm" />
 
@@ -226,6 +215,7 @@ const Navbar = () => {
           <Button variant="outline" color={color.green}>
             <Anchor
               href={PORTAL_URL}
+              target="_blank"
               style={{
                 color: color.green,
                 fontWeight: 600,

@@ -11,6 +11,7 @@ import "../../../styles/pages/home.css";
 import { color } from "../../../contants/color";
 import { IconCircleCheck } from "@tabler/icons-react";
 import useDeviceSize from "../../../utils/useDeviceSize";
+import { openLink } from "../../../utils/openLink";
 
 interface IFeatureSectionProps {
   bgColor: string;
@@ -22,6 +23,7 @@ interface IFeatureSectionProps {
     textColor: string;
     text: string;
     link: string;
+    is_external: boolean;
   }[];
   images: [string, string];
   features: string[];
@@ -63,7 +65,14 @@ const FeatureSection: React.FC<IFeatureSectionProps> = (props) => {
       <Box mt={30}>
         <Group justify="center">
           {props.buttons.map((button, index) => (
-            <Button key={index} variant={button.variant} color={button.bg}>
+            <Button
+              key={index}
+              variant={button.variant}
+              color={button.bg}
+              onClick={() => {
+                openLink(button.link, button.is_external);
+              }}
+            >
               <Text c={button.textColor} fw={600} fz={18}>
                 {button.text}
               </Text>

@@ -1,19 +1,18 @@
-import {
-  Box,
-  Button,
-  Container,
-  Group,
-  Paper,
-  Text,
-} from "@mantine/core";
+import { Box, Button, Container, Group, Paper, Text } from "@mantine/core";
 import "../styles/pages/home.css";
 import Footbar from "../components/layout/footbar";
 import Navbar from "../components/layout/navbar";
 import { color } from "../contants/color";
 // import { TrackingEvents } from "../utils/tracking";
-import { CALENDERLY_URL, PORTAL_URL } from "../contants/url";
+import {
+  CALENDERLY_URL,
+  HIRING_URL,
+  INTERNAL_URL,
+  PORTAL_URL,
+} from "../contants/url";
 import useDeviceSize from "../utils/useDeviceSize";
 import FeatureSection from "../components/pages/home/FeatureSection";
+import { openLink } from "../utils/openLink";
 
 const feature_section = [
   {
@@ -30,14 +29,16 @@ const feature_section = [
         bg: color.green,
         textColor: color.white,
         text: "Get Started",
-        link: CALENDERLY_URL,
+        link: HIRING_URL,
+        is_external: true,
       },
       {
         variant: "outline",
         bg: color.green,
         textColor: color.green,
         text: "Explore",
-        link: PORTAL_URL,
+        link: INTERNAL_URL.ATS,
+        is_external: false,
       },
     ],
     images: [
@@ -64,14 +65,16 @@ const feature_section = [
         bg: color.green,
         textColor: color.white,
         text: "Get Started",
-        link: CALENDERLY_URL,
+        link: PORTAL_URL,
+        is_external: true,
       },
       {
         variant: "outline",
         bg: color.green,
         textColor: color.green,
         text: "Explore",
-        link: PORTAL_URL,
+        link: INTERNAL_URL.BEHAVIOUR_ANALYSIS,
+        is_external: false,
       },
     ],
     images: [
@@ -120,12 +123,18 @@ const Home = () => {
 
           <Box mt={50}>
             <Group justify="center">
-              <Button color={color.yellow}>
+              <Button
+                color={color.yellow}
+                onClick={() => openLink(CALENDERLY_URL, true)}
+              >
                 <Text c={color.green} fw={600} fz={18}>
                   Book a Demo
                 </Text>
               </Button>
-              <Button variant="transparent">
+              <Button
+                variant="transparent"
+                onClick={() => openLink(PORTAL_URL, true)}
+              >
                 <Text
                   c={color.light_green}
                   fw={600}

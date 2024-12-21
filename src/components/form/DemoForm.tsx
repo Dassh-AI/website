@@ -11,7 +11,11 @@ import { demoSchema, TDemoSchema } from "./demo";
 import "../../styles/component/input.css";
 import { color } from "../../contants/color";
 
-const DemoForm = () => {
+interface IDemoFormProps {
+  product: string | null;
+}
+
+const DemoForm: React.FC<IDemoFormProps> = ({ product }) => {
   const form = useForm<TDemoSchema>({
     initialValues: {
       workEmail: "",
@@ -19,7 +23,7 @@ const DemoForm = () => {
       lastName: "",
       title: "",
       companyName: "",
-      details: "",
+      details: product || "",
     },
     validate: zodResolver(demoSchema),
   });
@@ -90,7 +94,9 @@ const DemoForm = () => {
 
         <Group justify="center" mt={40}>
           <Button type="submit" color={color.yellow} variant="filled">
-            <Text c={color.green} fw={600}>Submit</Text>
+            <Text c={color.green} fw={600}>
+              Submit
+            </Text>
           </Button>
         </Group>
       </form>

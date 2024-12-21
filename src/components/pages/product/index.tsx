@@ -12,6 +12,7 @@ import ProductFeatureCard from "../../card/ProductFeatureCard";
 import { color } from "../../../contants/color";
 import ProductWorkingCard from "../../card/ProductWorkingCard";
 import "../../../styles/pages/product.css";
+import { openLink } from "../../../utils/openLink";
 
 interface IProductPageProps {
   title: string;
@@ -22,6 +23,7 @@ interface IProductPageProps {
     textColor: string;
     text: string;
     link: string;
+    is_external: boolean;
   }[];
   images: [string, string];
   product_subtitle: string;
@@ -46,7 +48,7 @@ interface IProductPageProps {
 const ProductPage: React.FC<IProductPageProps> = (props) => {
   const { width, isMobile } = useDeviceSize();
   return (
-    <Paper px={isMobile ? 20 :80} pb={80}>
+    <Paper px={isMobile ? 20 : 80} pb={80}>
       <Box mt={100}>
         <Text fw={700} c={color.light_green} className="hero-title">
           {props.title}
@@ -61,7 +63,14 @@ const ProductPage: React.FC<IProductPageProps> = (props) => {
       <Box mt={40}>
         <Group justify="center">
           {props.buttons.map((button, index) => (
-            <Button key={index} variant={button.variant} color={button.bg}>
+            <Button
+              key={index}
+              variant={button.variant}
+              color={button.bg}
+              onClick={() => {
+                openLink(button.link, button.is_external);
+              }}
+            >
               <Text c={button.textColor} fw={600}>
                 {button.text}
               </Text>
@@ -76,15 +85,15 @@ const ProductPage: React.FC<IProductPageProps> = (props) => {
             src={props.images[0]}
             alt="feature"
             fit="contain"
-            height={isMobile ? 'auto' : width * 0.25}
-            width={isMobile ? width * 0.8 : 'auto'}
+            height={isMobile ? "auto" : width * 0.25}
+            width={isMobile ? width * 0.8 : "auto"}
           />
           <Image
             src={props.images[1]}
             alt="feature"
             fit="contain"
-            height={isMobile ? 'auto' : width * 0.25}
-            width={isMobile ? width * 0.8 : 'auto'}
+            height={isMobile ? "auto" : width * 0.25}
+            width={isMobile ? width * 0.8 : "auto"}
           />
         </Group>
       </Box>
@@ -156,9 +165,9 @@ const ProductPage: React.FC<IProductPageProps> = (props) => {
             variant="filled"
             color={color.yellow}
             mt={40}
-            // onClick={() => {
-            //     window.location.href = props.link;
-            // }}
+            onClick={() => {
+              openLink(props.link, true);
+            }}
           >
             <Text c={color.green} fw={600}>
               Get Started

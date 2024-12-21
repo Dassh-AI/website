@@ -31,16 +31,19 @@ type TProduct = keyof typeof PRODUCTS;
 
 const Demo = () => {
   const [searchParams] = useSearchParams();
-  const product = searchParams.get("product") as TProduct | null;
+  const product = searchParams.get("product");
 
-  const products = product ? { [product]: PRODUCTS[product] } : PRODUCTS;
-  const {isMobile} = useDeviceSize();
+  const products =
+    product && product !== "ENTERPRISE"
+      ? { [product]: PRODUCTS[product as TProduct] }
+      : PRODUCTS;
+  const { isMobile } = useDeviceSize();
 
   return (
     <section className="main">
       {/* header */}
       <Navbar />
-      <Paper mt={80} mih={"73vh"} px={isMobile? 10: 40} pb={80}>
+      <Paper mt={80} mih={"73vh"} px={isMobile ? 10 : 40} pb={80}>
         <SimpleGrid
           cols={{
             xs: 1,
@@ -58,7 +61,7 @@ const Demo = () => {
           </Box>
 
           <Box>
-            <DemoForm />
+            <DemoForm product={product} />
           </Box>
         </SimpleGrid>
       </Paper>
